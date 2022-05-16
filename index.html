@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual de ajuda</title>
+    <!--Estilos
+    <link rel="stylesheet" typr="text/css" href="./css/style.css" />-->
+    <!--Fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        /*==== default ====*/
+* {
+    margin: 0;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+/*==== base ====*/
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    color: #452C54;
+    background: #452C54;
+}
+
+#main .container {
+    display: block;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1rem; 
+    background: white;
+    border-radius:  0.6rem  0.6rem 0 0;
+    box-shadow: 1px 2px 2px 1px #333;
+}
+
+#main section h2 {
+    text-align: center;
+    color: white;
+    background: #333;
+    border-radius:  0.6rem  0.6rem 0 0;
+
+}
+
+#main h3 {
+    text-align: center;
+    color: #F1B41B;
+}
+
+#main details * {
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+#main details h3 {
+    text-align: center;
+}
+
+#main p {
+    text-indent: 1.5em;
+    line-height: 1.5em;
+    text-align: justify;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.lista {
+    margin-left: 3rem;
+}
+
+#footer {
+    margin-bottom: 2rem;
+}  
+
+#footer .container {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; 
+    background: #333;
+    color: aliceblue;
+    border-radius:  0 0 0.6rem  0.6rem;
+    box-shadow: 1px 0px 1px 1px #333;
+
+}
+
+#footer small {
+    margin-left: 0.5rem;
+}
+/*==== main ====*/
+
+.div1 {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    height: 1px;
+    background: #F1B41B;
+}
+
+/*==== display ====*/
+
+@media (min-width: 900px) {
+    body {
+        font-size: 1.5rem;
+    }  
+}
+
+@media (max-width: 899px) {
+
+    #main details {
+        margin-left: 0.2rem;
+    }
+
+    #main h3 {
+        margin-top: auto;
+        margin-bottom: 1rem;
+    }
+    
+    pre {
+        font-size: 0.5rem;
+        margin: 0;
+    }
+
+    
+}
+    </style>
+  </head>
+  <body>
+    <!--main-->
+    <main id="main">
+      <div class="container">
+        <section>
+          <h2>Material Complementar (IFC)</h2>
+          <p>
+            O objetivo deste material segregado é oferecer exemplos de requisições e algumas regras que facilitam o conteúdo do manual de forma complementar. 
+          </p>
+        </section>
+        <div class="div1"></div>
+        <section>
+          <h3>Exemplos de requisições e outras informações</h3>
+          
+          <details><!--01 - Reunião de Kickoff-->
+            <summary>01 - Requisições de estoque</summary>
+            <p>No modeo abaixo segue exemplo de envio de estoque contendo duas formas, uma requisição única para um produto e também uma requisição contendo mais de um produto. As integrações de estoque são realizadas no protocolo Soap. As Urls e dados de autenticãções são disponibilizados pela Infracommerce ao Seller.</p>
+            <b></b>
+            <h4 align="center"> Requisição com um produto</h4>
+            <b></b>
+             <textarea rows="20" cols="100">
+              <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <stoc:setStockRequest>
+         <stoc:stockList>
+            <stoc:Stock>
+              <stoc1:skuId>7891150058428</stoc1:skuId>
+               <stoc1:quantity>300</stoc1:quantity>
+            <stoc1:stockTypeSourceName>controlUnitQuantity</stoc1:stockTypeSourceName>
+            </stoc:Stock>
+         </stoc:stockList>
+      </stoc:setStockRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+</textarea>
+ <h4 align="center"> Requisição com mais de um produto</h4>
+ <textarea rows="20" cols="100">
+   <stoc:setStockRequest xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
+   <stoc:stockList>
+      <stoc:Stock>
+         <stoc1:skuId>7891150058428</stoc1:skuId>
+         <stoc1:quantity>80</stoc1:quantity>
+         <stoc1:stockTypeSourceName>controlUnitQuantity</stoc1:stockTypeSourceName>
+      </stoc:Stock>
+      <stoc:Stock>
+         <stoc1:skuId>7891150058428C4</stoc1:skuId>
+         <stoc1:quantity>20</stoc1:quantity>
+         <stoc1:stockTypeSourceName>controlUnitQuantity</stoc1:stockTypeSourceName>
+      </stoc:Stock>
+   </stoc:stockList>
+</stoc:setStockRequest>
+ </textarea>
+  <h4 align="center"> Exemplo de retorno da plataforma</h4>
+  <br>
+        <textarea rows="20" cols="100">
+    <?xml version = '1.0' encoding = 'UTF-8'?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+  <env:Body>
+    <setStockResponse xmlns="http://www.accurate.com/acec/StockServices">
+      <result>Sucesso</result>
+          </setStockResponse>
+  </env:Body>
+</env:Envelope>
+
+        </textarea>
+
+
+            
+          </details>
+          <details><!-- 02- Criar Grupo-->
+            <summary>02 - Preços XML</summary>
+            <br>
+            <p>Existem duas formas de envios de preços para a plataforma. no formato XML, seguindo o mesmo protocolo das demais integrações (SOAP) onde os preços enviados pelo distribuidor, serão aplicados para todos os clientes de sua região de atendimento e o padrão REST, que será apresentado no menu 3 com mais detalhes.
+             A estrutura é composta por dois parametros: O produto informado e a tabela de preço que deseja enviar para o produto. Segue abaixo alguns exemplos de tabelas de preços que ajudarão a entender melhor.
+             <br><br>
+             <b>DFL</b> = Preço à vista. Obrigatório para que um produto apareça no site.
+            <br>
+             <b>CRL-7</b> = Boleto faturado para 7 dias
+               <br>
+             <b>CRL-14</b> = Boleto faturado para 14 dias
+               <br>
+             <b>CRL-21</b> = Boleto faturado para 21 dias
+               <br>
+             <b>CRL-28</b> = Boleto faturado para 28 dias
+             <br>
+
+             <p>Observação: Os preços em boleto faturado só estarão disponíveis para os clientes que possuírem aprovação e limite de crédito na plataforma (APIS chamadas pelo distribuidor)</p>
+              <br>
+
+              <h4 align="center">Exemplo de requisição com uma tabela de preço</h4>
+              <textarea rows="20" cols="100">
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:br="br.com.accurate.acpr.priceservices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <br:integrateProductPriceFromSku>
+         <sku_list>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.55</priceValue>
+                     <priceTp>DFL</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+         </sku_list>
+      </br:integrateProductPriceFromSku>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+              </textarea>
+              <br>
+              <p> No exemplo acima foi enviado O valor de R$1.55 para o produto 7891150055087 na condição de pagamento à vista (DFL).</p>
+              <br>    
+              <h4 align="center">Exemplo de requisição com multiplas tabelas de preços. </h4>
+               <textarea rows="20" cols="100">
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:br="br.com.accurate.acpr.priceservices">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <br:integrateProductPriceFromSku>
+         <sku_list>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.55</priceValue>
+                     <priceTp>DFL</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.56</priceValue>
+                     <priceTp>CRL-7</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.57</priceValue>
+                     <priceTp>CRL-14</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.58</priceValue>
+                     <priceTp>CRL-21</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+            <sku>
+               <skuId>7891150055087</skuId>
+               <productPriceList>
+                  <productPrice>
+                     <priceValue>1.59</priceValue>
+                     <priceTp>CRL-28</priceTp>
+                  </productPrice>
+               </productPriceList>
+            </sku>
+         </sku_list>
+      </br:integrateProductPriceFromSku>
+   </soapenv:Body>
+</soapenv:Envelope>
+               </textarea> 
+
+
+
+           <p>No exemplo acima, enviado para plataforma a requisição de preços para o SKU 7891150055087 com as tabelas de preços à vista (DFL), Boleto faturado para 7, 14, 21 e 28 dias. Cada tabela de preço pode ter seu respectivo preço de forma dinâmica gerenciado pelo distribuidor. Como boa pratica, o distribuidor deverá seguir as boas praticas de não enviar mais de 50 produtos na mesma requisição, a fim de não onerar a fila de integração.</p>
+           <br>
+           <h4 align="center">Exemplo de retorno da plataforma</h4>
+           <textarea rows="10" cols="100"> 
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:integrateProductPriceFromSkuResponse xmlns:ns2="br.com.accurate.acpr.priceservices">
+        <result>OK</result>
+      </ns2:integrateProductPriceFromSkuResponse>
+  </S:Body>
+</S:Envelope>
+           </textarea>
+          </details>
+          <details><!--03 - Validação de EndPoint-->
+            <br> 
+            <br>  
+            
+          
+            <summary>03 - xxxxxxx</summary>
+            <ol type="1">
+                <p>
+                    O time define alguém para fazer a validação de endpoint´s do Seller, garantindo que o mesmo está em perfeito funcionamento, são realizados os testes: 
+                </p>
+                <div class="div1"></div>
+                <section class="lista">
+              <li>(Customer) - Cliente.</li>
+              <li>(Order) - Pedido.</li>
+              <li>(Payment) - Pagamento.</li>
+            </section>
+              <div class="div1"></div>
+            </ol>
+          </details>
+          <details><!--04 - Confirma validação de EndPoint-->
+            <summary>04 - xxxxxxx</summary>
+            <p>Após o analista responsável pela validação de endpoint ter confirmado que tudo está funcionado 100%, ele posiciona ao time de PMO e o mesmo solicita a abertura de ticket de premissas.</p>
+          </details>
+          <details><!--05 - Ticket de premissas-->
+            <summary>
+              05 - xxxxxxx.
+            </summary>
+            <p>Time de pmo abre o ticket, uma vez que esta ok, aqui internamente no rollout nos gerenciamos quem vai seguir com projeto de acordo com a quantidade de projetos por analista.</p>
+          </details>
+          <details><!--06 - Tipo de rollout-->
+            <summary>06 - xxxxxxx</summary>
+            <p>
+                A pessoa que validou endpoints do rollout pergunta qual será o tipo de integração:
+                <pre>
+                Rollout
+                Rollout + Pricing
+                Rollout + Pricing + LTM
+            </pre>
+            <div class="div1"></div>
+            <li>Rollout comum - Price (xml)</li>
+            <li>Rollout com pricing - deixa de usar xml para usar estrutura em JSON.</li>
+            <li>Rollout com LTM - Seria novas formas de pagamento, até o momento somente disponivel no [CA] uma especie de vale.</li>
+            </p>
+            <div class="div1"></div>
+          </details>
+          <details><!--07 - Criação do monday-->
+            <summary>
+              07 - xxxxxxx.
+            </summary>
+            <p>Uma vez que é definido o tipo de rollout, é passado para Eduarda criar um projeto que atenda aquele Seller no monday junto com e-mail.</p>
+            <p>
+                Quando finalizar, passa os endpoints para o seller configurar do lado dele.E pede uma reunião na sequência caso seja um seller q não tenha experiência com monday ( se for tipo um cara novo q nunca fez precisa dessa call com analista do rollout ).Uma vez q foram executados esses passos inicia homologação.
+            </p>
+          </details>
+          <details><!--08 - Informar criação de setup-->
+            <summary>08 - xxxxxxx</summary>
+            <p>
+              O analista responsavel do projeto avisa no grupo que está em
+              criação do setup.
+            </p>
+          </details>
+          <details><!--09 - Criação de Setup-->
+            <summary>09 - xxxxxxx</summary>
+            <section class="tutor">
+              <h3>Configuração Setup HCP</h3>
+              <div class="div1"></div>
+              <h4>Pré-Cadastro - (Middleware)</h4>
+              <p>
+                B2B > Distribuidor > Gerenciar > Cadastrar Nome distrib. (nome
+                enviado nas premissas) > Filial repete nome do Distrib. >
+                Status: Inativo (por enquanto) > Flags tudo ‘não’ (*Politica de
+                preço SIM) >
+                <a
+                  href="https://www.lastpass.com/pt/features/password-generator"
+                  >Criar credenciais</a
+                >
+                (Senha sem símbolos) > OAuth repetir credencial anterior.
+                Colocar EndPoints (Cliente, Pedido e Pagamento), usuário e senha
+                enviados nas premissas > salvar.
+              </p>
+              <div class="div1"></div>
+              <h4>Cadastro - (Admin)</h4>
+              <p>
+                B2B > Distribuidor > Gerenciar > Pesquisar o Distrib. > abrir
+                distrib. Pesquisado > Selecionar site. Incluir CNPJ >
+                CEP/Endereço Pegar CNPJ das premissas e consultar na
+                <a
+                  href="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"
+                  >Receita Federal</a
+                >: Marcar SIM: Pré-aprovação de Clientes - Mostra Limite de
+                Crédito - Usa Taxa cartão crédito - Politica de preço -
+                Integração via middleware – LTM + Demais... Status: Inativo (por
+                enquanto) MEIO DE PAGAMENTO: Boleto antecipado , Crédito site,
+                Cartão de crédito , Vale , Voucher , Boleto faturado 7 Dias,
+                Boleto faturado 14 Dias, Boleto faturado 21 Dias, Boleto
+                faturado 28 Dias. Credenciais do distrib. criadas anteriormente
+                > Endpoints do distribuidor > usuário e senha criados
+                anteriormente para endpoints.
+              </p>
+              <div class="div1"></div>
+              <h4>Faixa de CEP</h4>
+              <p>
+                Admin: B2B > Distrib. > Faixa de CEP > importar > baixar modelo
+                DeskTop > Premissas > Pegar CEP enviado > Baixa-lo > Copiar
+                coluna de CEP Inicial e Final > Colar no modelo de tabela Pegar
+                ID do distribuidor em: Admin > B2B > Distrib. > Gerenciar >
+                Pesquisar Distrib. > copiar Código Distribuidor > colar código
+                distrib. No modelo de tabela em ID do distrib. > Prazo: 3 > Usa
+                observação: Não > observação: Em branco Se tiver duplicados:
+                Dados > remover duplicadas > Salva planilha Admin: B2B >
+                Distrib. > Faixa de CEP > Pesquisar Distrib. > Importar >
+                procurar > importar (Coment: Confirmar ID e nome do
+                distribuidor. B2B > Distrib. > Gerenciar)
+              </p>
+              <div class="div1"></div>
+              <h4>Restrição de sortimento</h4>
+              <p>
+                (Permite a Visualização dos produtos) Admin > B2B > Distrib. >
+                Restrição de Sortimento > Pesquisar o Distrib.> Cadastrar >
+                Selecione o site > Selecione a loja (categoria) > cadastrar
+                >cadastrar todas as lojas > Salvar. Mandar os nossos ENDPOINTS
+                para o distribuidor para ser enviado o Estoque e dar
+                continuidade com o processo de homologação.
+              </p>
+              <div class="div1"></div>
+              <h4>Cadastro do usuário de API</h4>
+              <p>
+                Middleware: Administrativo > Usuário > cadastrar > colocar
+                credenciais do distribuidor criadas > selecionar distrib. >
+                Online > Permissões de API: CostomerStatus, Prices, Policies,
+                PricesPoliciesCustumer, PricesPoliciesPrice > Customers >
+                CreditLimits > Orders > IntegrationMonitor > Salvar alterações.
+                Admin: Administrativo > Usuário > cadastrar > colocar
+                credenciais do distribuidor criadas > selecionar distrib. >
+                Online > Permissões de API: CostomerStatus, Prices, Policies,
+                PricesPoliciesCustumer, PricesPoliciesPrice > Customers >
+                CreditLimits > Orders > IntegrationMonitor > Salvar alterações.
+              </p>
+              <div class="div1"></div>
+              <h4>Endpoints e credenciais da IFC</h4>
+              <p>
+                (ENVIAR PARA O DISTRIBUIDOR NO CHAT) Monday: Base de
+                conhecimento > abrir desc. Da loja que está trabalhando > copiar
+                Endpoints: Estoque, Tracking, Status de cliente, limite de
+                crédito, API do Token e API de política de preço (Esses são
+                endpoints para envio ao distribuidor de informações ao
+                middleware.)
+              </p>
+              <div class="div1"></div>
+              <h4>
+                Verificar se as API’s estão em funcionamento para o distribuidor
+              </h4>
+              <p>
+                Postman: Authorization > URL: GET > colocar API do Token > Type:
+                Basic Auth > Username e password criado nas credenciais > Voltar
+                para authorization > SEND > copiar ACESS_TOKEN gerado. Criar
+                outra aba > Authorization > URL: POST > colocar API de politica
+                de preço > Type: bearer token > voltar para authorization >
+                colar código TOKEN copiado > SEND.
+              </p>
+              <div class="div1"></div>
+              <h4>Exemplo de Pricing</h4>
+              <p>
+                API que gera o token de autenticação:
+                https://middlewareb2b-rollout.ifcshop.com.br/Oauth/token/?username=ARCadis&password=DoLx7SkuYS6f
+                API de envio de política de preços:
+                https://middlewareb2b-rollout.ifcshop.com.br/v2/prices/policies
+                Após finalizar e mandar nossos Endpoints: Topdesk > Abrir o
+                Ticket > Processamento > Operador: Gabriel Victor... > Status:
+                Resolvido > Quadro vermelho escrever: Configurações foram
+                realizadas com sucesso (ou algo do tipo) > Salvar.<br />
+                <div class="div1"></div>
+                <i>
+                  Outra forma mais simples (não tenho certeza se é assim) Admin
+                  > B2B > Distrib. > estoque > exportar > importar em Restrição
+                  de sortimento
+                </i>
+              </p>
+              <div class="div1"></div>
+            </section>
+          </details>
+          <details><!--10 - Enviar Endpoint para o Seller-->
+            <summary>10 - xxxxxxx</summary>
+            <h4>Endpoints e credenciais da IFC</h4>
+            <p>
+              Após gerar os endpoints e credencias para o seller, disponibilizar para o mesmos no grupo.
+            </p>
+          </details>
+          <details><!--11 - Rollout HCP-->
+            <summary>11 - xxxxxxx</summary>
+            <section id="rollout" class="tutor">
+              <h3>Rollout HCP</h3>
+              <div class="div1"></div>
+              <h4>Integração de Estoque</h4>
+              <p>
+                Distribuidor=Middleware > StockServices > Estoque disponível URL
+                completa > colocar SKU (produto)> Quantidade de produto (caso
+                for caixa: C1 ou C2... no final) > Executar > retorno: SUCESSO.
+                Middleware: B2B > Integração > Monitoramento de Fila > Procurar
+                distribuidor > executar as tarefas no hub do middleware >
+                Tarefas: Notif. De estoque, Integ. De estoque Admin: B2B >
+                Integrações > Monit. De fila ou auditoria > Executar tarefa no
+                hub do admin > evidenciar Requisição e resposta Admin: B2B >
+                Distrib. > Estoque > Pesquisar distrib. > Exportar estoque e
+                evidenciar.
+              </p>
+              <div class="div1"></div>
+              <h4>Integração de Preço</h4>
+              <p>
+                Distribuidor=Middleware > PriceServices > Multiplos Preços >
+                Alterar SKU’s de todos > Alterar todos os preços > Alterar
+                Header > alterar URL > Executar (Tipo de integração na Monit.
+                Fila: Politica de Preço e não PREÇO) Middleware: Monit. Fila >
+                Executar hub Middleware > Admin: Monitor. Fila > executar hub
+                admin Admin: B2B > Politica de preço > Produtos por Politica de
+                preço > exportar planilha > evidenciar com planilha. Verificar e
+                comparar preços que chegar no middleware XML com a evidência de
+                preço do distrib. antes de continuar Politica DEFAULT não
+                precisa do CNPJ Politica CLUSTER precisa do CNPJ especifico Para
+                saber se o preço da cluster foi enviado para o CNPJ certo é só
+                olhar na Requisição
+              </p>
+              <div class="div1"></div>
+              <h4>Atualizar Politica de Preço</h4>
+              <p>
+                Solicitar para o distribuidor enviar atualização de preços (os
+                preços da POLITICA de preço tem que estar diferentes do cenário
+                de Preço). Visualize pela monitoria de fila do: > Admin >
+                Middleware > executar hubs. Admin > B2B > Politica de preço >
+                Prod. p/ polit. De preço > pesquisar distribuidor > baixar
+                planilha > comparar/verificar planilha de politica de preços com
+                planilha de preço > os preços tem que estar diferentes > enviar
+                planilha para o distribuidor validar.
+              </p>
+              <div class="div1"></div>
+              <h4>Cliente – Notificação de cadastro</h4>
+              <p>
+                Pesquisar pelo CEP B2B > Distrib. > Faixa de CEP > Pesquisar
+                Distrib. > pegar algum CEP Pesquisar CEP para achar Município e
+                Estado/cidade e pegar CNPJ em: (https://cnpj.biz/) > Procurar
+                pela cidade > procurar por status ATIVO > Cliente faz cadastro
+                no site Verificar notif. De cadastro no admin: monit. Fila >
+                Pesquisar pelo CNPJ > Executar no hub do admin Middleware:
+                Monit. Fila > pesquisar pelo CNPJ > executar tarefa no hub do
+                middleware > evidenciar com Requis. E resposta (status PEN).
+                Obs: Os clientes sempre vão ser default a não ser que o
+                distribuidor decida colocar algum deles como cluster, sempre que
+                o nome não tiver como default ele é cluster.
+              </p>
+              <div class="div1"></div>
+              <h4>Cliente – Atualização de cadastro</h4>
+              <p>
+                Ver o CNPJ certo do cliente no site site > Dados da empresa >
+                Atualizar o que está sendo pedido (ex: Telefone) > monit. Fila >
+                notif de cadastro > rodar hubs: Importar cliente e notificação
+                de cliente.
+              </p>
+              <div class="div1"></div>
+              <h4>Cliente e limite de crédito</h4>
+              <p>
+                Ao mudar cliente de cluster para default o mesmo tem que sumir
+                de Admin: B2B > Politica de preços > cliente por politica de
+                preços > (COMPLETAR) Quando o cliente não estiver em nenhuma
+                politicia de preço é porque ele esta em default
+              </p>
+              <div class="div1"></div>
+              <h4>Status de Cliente</h4>
+              <p>
+                Distrib. Envia status (SOAP): Distribuidor=Middleware >
+                CustomerServices > Aprovar Cliente > Alterar: SKU, URL e Headers
+                > Executar Middleware: Monit. Fila > Hub middleware > executar
+                tarefa > Admin > Monit. Fila > Hub Admin > executar tarefas >
+                Evidenciar Requis. E resp. (STATUS APV).
+              </p>
+              <h4>Limite de Crédito</h4>
+              <p>
+                Distrib. Envia limite (SOAP): Distribuidor=Middleware >
+                VoucherService > Alterar: SKU, URL e Headers > Executar
+                Middleware: Monit. Fila > Hub middleware > executar tarefa >
+                Admin > Monit. Fila > Hub Admin > executar tarefas > Evidenciar
+                Requis. E resp. Limite de crédito não vai estar na monit. de
+                fila e sim em B2B > Clientes > Lim. De crédito > Pesquisar pelo
+                CNPJ cadastrado com Cluster (usar esse de evidência)
+              </p>
+              <div class="div1"></div>
+              <h4>Pedido</h4>
+              <p>
+                Criar KIT BONIFCADO antes de fazer o Pedido (Caso o cenário
+                pedir) Se for com cartão de crédito: número do cartão padrão:
+                41111... Pegar CPF no gerador de CPF OBS: TOMAR CUIDADO COM OS
+                PEDIDOS, ANALISAR BEM A FORMA QUE É SOLICITADO, SE O PEDIDO NÃO
+                PEDE PROMOÇÃO, REMOVA AS PROMOÇÕES DAQUELE PRODUTO SE O PEDIDO
+                FOI SOLICITADO PARA PAGAR COM ‘PROMOÇÃO VALE’ (SEM FALAR OUTRA
+                FORMA DE PAGAMENTO) É PARA PAGAR APENAS COM A PROMO. Faturado
+                Parcialmente ou Faturado por completo é o distribuidor que faz
+                esse processo No faturado parcialmente ele vai enviar a NFS e a
+                FAT com um valor inferior ao do pedido Boleto a prazo é boleto
+                faturado Cartão de crédito não funciona em PRD (precisa de
+                cartão e CPF real) Selecionar produto no site > Ir para o
+                carrinho > Escolher forma de pagamento > Efetuar compra > Admin
+                > monit. Fila > Hub admin > executar tarefas > middleware >
+                monit. Fila > Hub middleware > Evidenciar Requis. E resp. (Pegar
+                XML requisição e deixar no SUBLIME para fazer alteração quando
+                chegar na NFS nota fiscal)
+              </p>
+              <div class="div1"></div>
+              <h4>Reprocessamento do Pedido já integrado</h4>
+              <p>
+                Não pode ser efetuado uma segunda integração, é necessário
+                aparecer algo do tipo: Pedido já existe no ERP. Reenfileirar no
+                middleware algum pedido e rodar tarefa no hub do middleware
+                novamente, aparecerá como não aplicável.
+              </p>
+              <div class="div1"></div>
+              <h4>Kit Bonificado (Kit Promocional)</h4>
+              <p>
+                Necessário produto válido (esteja sendo exibido no site) (Item
+                cobrado e item não cobrado ‘brinde’) Marketing > Produtos >
+                Gerenciar > SKU Simples > Pesquisar código do SKU > site > loja
+                > Categoria > Incluir) Meta SKU > Incluir produto > Selecionar a
+                categoria do(s) produto(s) > Meta SKU (combo) Itens cobrados >
+                Meta SKU (combo) Itens bonificados > Colocar SKU do produtos >
+                Quantidade de cobrados e bonificados > adicionar nome a
+                descrição > adicionar Marca e fabricante Essas Info podem ser
+                pegas do cadastro do produto: Marketing > Produtos > Gerenciar >
+                pesquisar SKU Simples SAC: em branco > Stts produto: offline >
+                Exibe Indisp.: sim > Datas: em branco > colocar dimensões > o
+                resto em branco > salvar > anotar numero do KIT.
+              </p>
+              <p>
+                <strong>Colocar imagem no KIT</strong>: Marketing > Produto >
+                Imagens e vídeos > pesquisar numero do KIT > Cadastrar imagem >
+                colocar imagem > salvar.
+              </p>
+              <p>
+                <strong>Deixar o KIT online</strong>: Marketing > produtos >
+                gerenciar > Meta SKU > alterar produto > Inserir código do kit.
+                > Comercial > Status do prod.: Online > Salvar produto.
+              </p>
+              <p>
+                <strong>Adicionar o KIT no sortimento do distribuidor</strong>:
+                B2B > Distribuidor > Sortimento > Pesquisar distrib. > aba
+                Sortimento > Cadastrar > buscar produto pelo numero do KIT >
+                selecionar > adicionar > Executar job > hub admin > Atualizar
+                sumarizada > Verificar no site se apareceu o KIT. Pesquisar pelo
+                código do produto
+              </p>
+              <div class="div1"></div>
+              <h4>Promoção com Vale Troca (Voucher)</h4>
+              <p>
+                Admin: Pesquisar: vale (comercial>vale) > Cadastrar > Site que
+                está trabalhando > Tipo vale: Crédito avulso > Distribuidor >
+                CNPJ que vai efetuar a compra > valor do vale > data > cadastrar
+                vale > aprovar >
+              </p>
+              <div class="div1"></div>
+              <h4>Promoção Site</h4>
+              <p>
+                (Subtotal, Em produto...) Ver produto no site > pegar SKU Admin:
+                Pesquisar por promo > Promoção site > Cadastrar uma promoção >
+                Tipo de Benef.: Desconto Percent. Prod. > Inventar nomes > Valor
+                benef. Não pode ser alto (menos de 10) > Tipo: subtotal >
+                Subtipo: em branco > Desc. E Notas: Inventar nomes > Status:
+                ativo > Quant. Min.: 1 > quant. Max: 9999 > Data e hora:
+                escolher > Regra de Util.: não cumulativa > Disp p/: todos os
+                apps > selecionar site que está trabalhando > Selecionar
+                distribuidor que está trabalhando > Segmento: Todos os Seg. >
+                Primeira comp.: Não > o resto em branco. > Salvar. Critérios >
+                Escolher > *CNPJ todos os produto dessa pessoa jurídica > *SKU
+                apenas o produto com esse SKU > Verif. Status: Ativo > Atualizar
+                Hub Admin > Atualizar sumarizada > verificar no site se a promo
+                foi integrada > Pronto para efetuar Pedido com promo. Para
+                inativar: Admin > Pesquisar por promo > Promoção site > Inativo
+                > Salvar.
+              </p>
+              <div class="div1"></div>
+              <h4>LTM</h4>
+              <p>
+                Habilitar LTM no setup: Admin > B2B > Distribuidor > gerenciar >
+                selecione o distrib. > LTM e os demais meios de pag. Realizar
+                Req. POSTMAN protocolo POST (Crédito p/ determinado CNPJ) No
+                POSTMAN: Criar outra aba > Alterar GET para POST > Pegar URL (A
+                que tem: Rollout, Resgate) (Colocar em Enter Request URL) >
+                Authorization > Type > Basic Auth > Usuário: ltm_user_(n°) >
+                Senha: 12345678 > Body > raw > Copiar código que tem: CNPJ,
+                email, razaoSocial e creditos > Alterar CNPJ > credito: 100.00 >
+                Send. Nova aba > Alterar GET para POST > Pegar URL (A que tem:
+                Rollout, aprovacao) > Colocar em Enter Request URL >
+                Authorization > Type > Basic Auth > Usuário > Senha > no body
+                mudar códigos: ‘codigo’ e ‘codigoLTM: Teste.LTM.1 (ir mudando o
+                numero a cada pedido)’. Para fazer novamente: primeira aba ‘URL
+                resgate’ > send > copiar novo código gerado > segunda aba ‘URL
+                aprovacao’ > colar código novo > mudar n° do codigoLTM > send.
+                Após pegar um produto no site, aparecerá como ‘crédito
+                disponível’.
+              </p>
+              <div class="div1"></div>
+              <h4>Pagamento</h4>
+              <p>
+                Distribuidor MAP, MNA Faturado é o distribuidor (CRL-7-14-21-28)
+                NÓS (Boleto A vista, Crédito, Voucher [vale]) Não faturado é nós
+                OBS: Feito por nós via SOAP Faturado Parcialmente ou Faturado
+                por completo é o distribuidor que faz esse processo No faturado
+                parcialmente ele vai enviar a NFS e a FAT com um valor inferior
+                ao do pedido Boleto a prazo é boleto faturado Cartão de crédito
+                não funciona em PRD (precisa de cartão e CPF real) Eu Executo
+                tipo de pagamento e status AP ou RP (SOAP): Middleware=
+                Distribuidor > PaymentServices > Pagam. AP ou RP > Alterar: URL
+                (É A URL DO DOSTRIB., ENDPOINT DE PAYMENT), SKU, valor e Headers
+                > Executar Obs: O Headers é com a nossa criptografia que está
+                nas premissas (Usuário e senha) e NÃO AS CREDENCIAIS DO
+                DISTRIBUIDOR Distrib. Executa tipo de pagamento e status AP ou
+                RP (SOAP): Distribuidor=Middleware > TrackingServices > 7-Limite
+                AP ou 8-Limite RP > Alterar: SKU, URL e Headers > Executar
+                Middleware: Monit. Fila > Hub middleware > executar tarefa >
+                Admin > Monit. Fila > Hub Admin > executar tarefas > Evidenciar
+                Requis. E resp.
+              </p>
+              <div class="div1"></div>
+              <h4>Trackings</h4>
+              <p>
+                Distrib. Executa tarefas (SOAP): Distribuidor=Middleware >
+                TrackingServices > Tipos de trackings enviadas pelo distribuidor
+                para cada pedido de forma abreviada: Pedido pago com boleto a
+                vista, cartão de credito e vale troca: ORDER-AP, WMS, NFS, FAT,
+                ETR e ENT Pedido com pagamento reprovado com boleto a vista,
+                cartão de credito e vale troca: ORDER-RP, CAN Pedido boleto
+                faturado aprovado: ORDER - MAP, WMS, NFS, FAT, ETR e ENT Pedido
+                boleto faturado reprovado: ORDER - MNA, CAN (No NFS arrumar XML,
+                as infos estão no XML do Pedido) Arrumar: Os de AMARELO Só o
+                pedido bonificado AP faz essas alterações:
+                <pre>
+                  <trac1:occurrenceDt
+                    >2021-09-24T15:40:21.058-03:00</trac1:occurrenceDt
+                  >
+
+                  <trac1:skuDeliveryTracking>
+                    <trac1:skuId>7891050004604</trac1:skuId>
+                    <trac1:preparedQt>18</trac1:preparedQt>
+                    <trac1:unitPrice>20.00</trac1:unitPrice>
+                    <trac1:kitSkuId>9659</trac1:kitSkuId>
+                  </trac1:skuDeliveryTracking>
+                  <trac1:skuDeliveryTracking>
+                    <trac1:skuId>7891050004604</trac1:skuId>
+                    <trac1:preparedQt>18</trac1:preparedQt>
+                    <trac1:unitPrice>0.00</trac1:unitPrice>
+                    <trac1:kitSkuId>9659</trac1:kitSkuId>
+                  </trac1:skuDeliveryTracking>
+                </pre>
+                Se for Pricing e LTM (provavelmente não tenha teste de trackings
+                e pagamento) Parcialmente faturado: falta produto
+              </p>
+              <div class="div1"></div>
+            </section>
+          </details>
+          <details><!--12 - Finaizado rollout HCP-->
+            <summary>12 - xxxxxxx</summary>
+           
+            <p>
+                Após a finalização do HCP é informado para o seller, é solicitado os endpoint´s de produção, após essa solicitação é alinhado a data de inicio ao rollout de produção, o seller passando os novos endpoint´s é solicitado ao PMO  o ticket de premissas para PRD.
+            </p>
+          </details>
+          <details><!--12 - Rollout PRD-->
+            <summary>12 - xxxxxxx</summary>
+            <p>
+                O PMO avisa no grupo e informa o ticket de premissas para o PRD, o analista responsável pega o ticket e com base nos dados cria o setup de produção.
+            </p>
+          </details>
+          <details><!--13 - Finalizado rollout PRD-->
+            <summary>13 - xxxxxxx</summary>
+            <p>
+                É informado no grupo para o seller e PMO, que foi finalizado o rollout de PRD, questionar pro seller no grupo quando podemos iniciar a operação assistida, o seller confirmando solicitamos para Maria fazer o acompanhamento.
+            </p>
+          </details>
+          <details><!--14 - Operação Assistida-->
+            <summary>14 - xxxxxxx</summary>
+            <p>
+                É feito o acompanhamento junto ao seller durante 15 dias corridos. Faz um acompanhamento de fila, cria uma tabela de quantas integrações e se houve algum erro de integração.
+            </p>
+          </details>
+          <details><!--15 - Finalizado operação assistida-->
+            <summary>15 - xxxxxxx</summary>
+            <p>
+                Finalizando a operação assistida deve enviar um e-mail para os responsáveis, avisar no grupo que foi finalizado a operação assistida e passar os contatos do time de Key Account, marcando os responsáveis daquele passo adiante. 
+
+                Envia uma pesquisa de satisfação. 
+            </p>
+          </details>
+        </section>
+        <div class="divd-2"></div>
+      </div>
+    </main>
+    <!--end main-->
+    <!--footer-->
+    <footer id="footer">
+      <div class="container">
+        <small>A solution developed by Rollout IFC 2022</small>
+         <img src="unnamed.gif" width="1.8%" align="right">
+      </div>
+    </footer>
+    <!--end footer-->
+  </body>
+</html>

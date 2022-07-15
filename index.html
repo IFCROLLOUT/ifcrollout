@@ -198,6 +198,7 @@ details {
               <br>
               <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX, Boleto a Vista), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.
                 <br>
+                <br>
                 <h4>Pré-requisitos dos endpoints acima:</h4>
 
                 <li> Devem estar protegidos por criptografia Basica (Basic64).</li>
@@ -229,7 +230,7 @@ details {
                 <br>
                 <li>Conexão estável de internet para não haver falha nas integrações.</li>
                 <li>Endpoints estáveis e sem alterações de URL ou senha (deve ser fixo e não dinâmico).</li>
-                <li>• ERP apto para emitir notas fiscais nos ambientes de homologação e produção e gerenciar o cancelamento das notas durante os testes de homologação.</li>
+                <li>ERP apto para emitir notas fiscais nos ambientes de homologação e produção e gerenciar o cancelamento das notas durante os testes de homologação.</li>
                 <li>Não utilizar recursos ou programas que possam comprometer o processamento das integrações ou disputar recursos de hardware ou rede.</li>
                 <br>
                 <p><b>Observação:</b> Toda alteração feita no ambiente do distribuidor como: Endpoint, credenciais, alteração no certificado digital, deverá comunicar com pelo menos duas semanas de antecedência, para que possamos prevenir futuros impactos na plataforma de integração.</p>
@@ -248,7 +249,7 @@ details {
             
 
 
-            
+            <br>
 
              </details>
           
@@ -442,6 +443,7 @@ details {
               - API GET para que o seller resgataro Token de autenticação;
               <br>
               - API POST para realizar o envio da politica de preços, utilizando o token como autenticação.
+              <br>
               <br>
               <h4 align="center">Detalhes sobre regras de negócios para políticas de preços </h4>
               <br>
@@ -1608,6 +1610,7 @@ details {
 
               </textarea>
               <br>
+              <br>
               <p>Seguindo os exemplo acima, foram enviadas duas politicas, sendo DEFAULT que vale para todos os novos clientes que realizar cadastro na plataforma e POLITICA_CLUSTER para aplicar preços diferenciados para o negócio do distribuidor, por boa pratica, devemos sempre trabalhar para as próximas requisições por atualização, ou seja, caso necessário atualizar preços, zerar, incluir novos clientes, não há necessidade de enviar a requisição cheia, contendo todos os produtos, e sim apenas as informações de atualização, uma vez que, a plataforma trabalha com atualização e não precisa das demais requisições.</p>
               <br>
               <p>Exemplo: Imaginando o cenário que já foi enviado um para a política cluster a requisição acima, contendo produtos, tabelas de preços e dois clientes, caso o distribuidor desejar incluir três novos clientes para ela, o correto é enviar somente a atualização de cliente, seguindo o exemplo de requisição abaixo, sem a necessidade de reenviar toda a politica novamente.</p>
@@ -1767,6 +1770,7 @@ details {
        </textarea>
        <br> 
        <p>No exemplo acima, foram atualizados dois produtos para a politica_cluster. Ou seja, as requisições enviadas anteriormente permanecerão na plataforma e apenas os dois produtos foram alterados. O mesmo vale para inclusao de novos produtos.</p>
+       <br>
 
 
 
@@ -1797,7 +1801,7 @@ details {
             <details  box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);>
 
             <summary>05 - Integração de cliente</summary>
-
+            <br>
 
             <p>A integração de clientes nasce na plataforma, no ato que um cliente realiza o cadastro no site, que é integrado com o Sintegra onde a maior parte dos dados cadastrais são extraídos por ele.</p>
             <p>Para que o distribuidor receber esses dados, é preciso que o mesmo disponibilize um web service exposto na web, para que os envios sejam integrados em seu sistema (banco de dados e ERP).</p>
@@ -1854,8 +1858,9 @@ details {
 
                </textarea>
                <br>
-               <p><b>Exemplo de retorno esperado:</b></p>
                <br>
+               <p><b>Exemplo de retorno esperado:</b></p>
+               
                <textarea rows="10" cols="100">
                   <soapenv:Envelope xmlns:cus="http://www.accurate.com/acec/CustomerServices" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
                     <soapenv:Header/>
@@ -1874,6 +1879,7 @@ details {
                <p>Caso o cliente entre no site posteriormente para atualizar algum dado cadastral, como telefone, e-mail e etc, a informação enviada da plataforma para o distruibuidor será uma nova notificação de cadastro contendo toda a requisição. Neste caso, é sugerido que o seller retorne o status atual que o cliente se encontra. (PEN, APV ou RPV).</p>
                <br>
                <p><b>Pontos de atenção:</b> Durante a implantação, será enviado para o distribuidor envios massivos de clientes, atendidos pelo seu range de CEP, por este motivo, é importante que toda estrutura do seller, de banco, infraestrutura, seja capaz de receber esses dados e integrá-los. Na etapa de homologação é possível antecipar essa carga, a fim de evitar quaisquer eventuais problemas na etapa de produção.</p>
+               <br>
 
 
           </details>
@@ -1881,6 +1887,7 @@ details {
             <summary>
               06 - Integração de Status de Cliente
             </summary>
+            <br>
             <p>Conceito: Uma vez que o seller recebe os cadastros de clientes em sua base e já possui o status (PEN que foi retornado durante a integração do cliente), é possível que o seller envie outros dois status na integração de Status de cliente, que possibilitam enviar dois status, sendo eles APV(aprovação) e RPV(reprovação).</p>
             <p>A integração de status de cliente é de origem distribuidor para plataforma, e para esta ação, será disponibilizado pela Infracommerce, o endereço do endpoint e credenciais para essa integração ocorrer.</p>
             <br>
@@ -1943,6 +1950,7 @@ details {
           </details>
           <details><!--06 - Tipo de rollout-->
             <summary>07 - Limite de Crédito</summary>
+            <br>
             <h4>Fluxo</h4>
              <img src="img/limite_credito.png" width="100%" align="center">
 
@@ -1972,16 +1980,15 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
                 </textarea>    
 <br>  
                
-                <b>customerDocumentNr =</b> CNPJ do cliente que será concedido limite.
-                <br>
-                <b>Value =</b> Valor disponibilizado para o CNPJ em limite de crédito
-                <br>  
+                <p><b>customerDocumentNr =</b> CNPJ do cliente que será concedido limite.</p>
+                
+                <p><b>Value =</b> Valor disponibilizado para o CNPJ em limite de crédito</p>
 
-                <b>Origin =</b> <b>SELLER</b> (Limite gerenciado pelo distribuidor). Caso esse campo seja informado com 
+                <p><b>Origin =</b> <b>SELLER</b> (Limite gerenciado pelo distribuidor). Caso esse campo seja informado com 
                 valor:<b>IFC</b> e seja enviado com qualquer valor fictício, o limite de crédito será gerenciado
                 pela Infracommerce. Esse tipo de integração gerenciada pela plataforma vale apenas para casos
                 para projetos gerenciados pelo Infrapay. Em caso de dúvidas, falar com o time de projetos da 
-                infracommerce para mais informações.
+                infracommerce para mais informações.</b>
                 
              
                
@@ -2018,11 +2025,12 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
             <p>Um pedido feito na plataforma pode conter SKUs de mais de um Distribuidor. Dentro da estrutura desse pedido haverá uma entrega (nó delivery) para cada Distribuidor, contendo apenas os produtos e os valores referentes ao Distribuidor em questão.</p>
             <p>Antes do pedido ser integrado com os Distribuidores ele passa pelo processo de quebra de entregas, onde é gerada uma estrutura completa de pedido (objeto Order) para cada uma das entregas que o pedido possuir, gerando assim, uma estrutura completa de pedido que será enviada para cada um dos Distribuidores.</p>
             <br>
-            <b>OBS: os pagamentos de produtos referentes ao mesmo Distribuidor devem ser pagos integralmente com um único meio de pagamento, ou seja, os produtos referentes a um Distribuidor devem ser pagos integralmente com boleto faturado OU cartão de crédito OU boleto à vista. A única exceção a essa regra é o vale troca. O meio de pagamento vale troca pode ser combinado com qualquer outro meio de pagamento gerenciado pela plataforma Infrashop, sendo assim, podem existir casos nos quais o pedido enviado para o Distribuidor possua dois pagamentos: vale troca e cartão de crédito/boleto à vista e PIX. Pedidos pagos com boleto faturado não poderão ser combinados com vale troca.</b><br>
+            <p><b>OBS: os pagamentos de produtos referentes ao mesmo Distribuidor devem ser pagos integralmente com um único meio de pagamento, ou seja, os produtos referentes a um Distribuidor devem ser pagos integralmente com boleto faturado OU cartão de crédito OU boleto à vista. A única exceção a essa regra é o vale troca. O meio de pagamento vale troca pode ser combinado com qualquer outro meio de pagamento gerenciado pela plataforma Infrashop, sendo assim, podem existir casos nos quais o pedido enviado para o Distribuidor possua dois pagamentos: vale troca e cartão de crédito/boleto à vista e PIX. Pedidos pagos com boleto faturado não poderão ser combinados com vale troca.</b></p>
+              <br>
 
 
             
-                Pedidos feitos na forma de pagamento boleto antecipado/cartão o Distribuidor não pode emitir data de vencimento do pagamento na nota fiscal, pois essas formas de pagamento são tratadas pela infracommerce.</p>
+                <p>Pedidos feitos na forma de pagamento boleto antecipado/cartão o Distribuidor não pode emitir data de vencimento do pagamento na nota fiscal, pois essas formas de pagamento são tratadas pela infracommerce.</p>
                 <br>
                 <p>As promoções aplicadas (criados) na plataforma Infrashop podem dar descontos no valor dos SKUs e também podem dar bonificações (SKUs que não são cobrados do lojista). Quando um SKU recebe desconto o seu preço de listagem (listPrice) é diferente do preço de venda (salePrice). Quando um SKU é bonificado ele é enviado com o tipo FFR e o preço de venda R$ 0,00, indicando que o Distribuidor deve aplicar o tratamento necessário para faturar tal SKU como uma bonificação.</p>
 
@@ -4026,6 +4034,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                </textarea>
                <br>
                <p>Importante: Caso o distribuidor tenha regras de validação de estoque ou caso do tipo, não deve rejeitar a integração do pedido, uma vez que um pedido pode ser faturado parcialmente e caso houver necessidade de não seguir com o mesmo, deverá ser tratado com cancelamento, ou seja, o ERP deve se comportar de maneira com que a integração ocorra para os pedidos emitidos no e-commerce.</p>
+               <br>
 
 
 

@@ -2018,7 +2018,7 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
           </details>
           <details><!--07 - Criação do monday-->
             <summary>
-              07 - Integração de Pedidos.
+              08 - Integração de Pedidos.
             </summary>
             <br>
             <p>A integração de pedidos nasce na plataforma e é enviado para o distribuidor através do web service que deve ser disponibilizado pelo distribuidor para que os dados enviados sejam integrados em sua base de dados. O distribuidor devera disponibilizar e implementar o WSDL OrderINtegration.wsdl, presente em nosso manual de integração. Através desse serviço o Middleware padroniza a estrutura do pedido que é enviada para todos os Distribuidores.</p>
@@ -4046,7 +4046,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
           </details>
           <details><!--08 - Informar criação de setup-->
-            <summary>08 - Integração de Pagamento</summary>
+            <summary>09 - Integração de Pagamento</summary>
             <br>
             <p>
               A integração de pagamento, tem como objetivo, informar ao distribuidor se os pedidos integrados em seu ERP, houveram pagamento aprovado ou reprovado, para que assim o ciclo de vida dos pedidos evoluam para as trackings (status atual do pedido). A integração de pagamento se aplica somente para pedidos cujo o meio de pagamento é gerenciado pela Infracommerce, sendo eles:<b> Boleto antecipado, Cartão de crédito, PIX, Vale Troca, Vale Compra Agora (exclusivo para integrações da loja Compra Agora).</b> Uma vez que o distribuidor recebe a confirmação de pagamento dos pedidos mencionados com o status de aprovação (AP), o mesmo deve seguir com o fluxo de trackings para o pedido, para seguir o fluxo de vida.

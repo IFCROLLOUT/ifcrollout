@@ -65,7 +65,7 @@ td:first-child + td + td {  width: 120px }
 
 #main details * {
     margin-bottom: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 1.1rem;
 }
 
 #main details h3 {
@@ -114,13 +114,14 @@ td:first-child + td + td {  width: 120px }
  display: inline;
  width: 40%;
  float: right;
- font-size: 75%
+ font-size: 60%
 }
 
 li {
-	margin-right: 20px;
-	font-size:90%;
-	padding-right: 10px;
+  margin-right: 22px;
+  font-size:90%;
+  padding-right: 10px;
+  font-size: 60%;
 }
 
 p {
@@ -259,7 +260,7 @@ details {
             <b></b>
             <h4 align="center"> Requisição com um produto</h4>
             <b></b>
-             <textarea rows="20" cols="100">
+             <textarea rows="20" cols="80">
               <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
    <soapenv:Header/>
    <soapenv:Body>
@@ -276,7 +277,7 @@ details {
 </soapenv:Envelope>
 </textarea>
  <h4 align="center"> Requisição com mais de um produto</h4>
- <textarea rows="20" cols="100">
+ <textarea rows="20" cols="80">
    <stoc:setStockRequest xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
    <stoc:stockList>
       <stoc:Stock>
@@ -294,7 +295,7 @@ details {
  </textarea>
   <h4 align="center"> Exemplo de retorno da plataforma</h4>
   <br>
-        <textarea rows="20" cols="100">
+        <textarea rows="20" cols="80">
     <?xml version = '1.0' encoding = 'UTF-8'?>
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
   <env:Body>
@@ -330,7 +331,7 @@ details {
               <br>
 
               <h4 align="center">Exemplo de requisição com uma tabela de preço</h4>
-              <textarea rows="20" cols="100">
+              <textarea rows="20" cols="80">
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:br="br.com.accurate.acpr.priceservices">
    <soapenv:Header/>
    <soapenv:Body>
@@ -355,7 +356,7 @@ details {
               <p> No exemplo acima foi enviado O valor de R$1.55 para o produto 7891150055087 na condição de pagamento à vista (DFL).</p>
               <br>    
               <h4 align="center">Exemplo de requisição com multiplas tabelas de preços. </h4>
-               <textarea rows="20" cols="100">
+               <textarea rows="20" cols="80">
             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:br="br.com.accurate.acpr.priceservices">
    <soapenv:Header/>
    <soapenv:Body>
@@ -417,7 +418,7 @@ details {
            <p>No exemplo acima, enviado para plataforma a requisição de preços para o SKU 7891150055087 com as tabelas de preços à vista (DFL), Boleto faturado para 7, 14, 21 e 28 dias. Cada tabela de preço pode ter seu respectivo preço de forma dinâmica gerenciado pelo distribuidor. Como boa pratica, o distribuidor deverá seguir as boas praticas de não enviar mais de 50 produtos na mesma requisição, a fim de não onerar a fila de integração.</p>
            <br>
            <h4 align="center">Exemplo de retorno da plataforma</h4>
-           <textarea rows="10" cols="100"> 
+           <textarea rows="10" cols="80"> 
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <ns2:integrateProductPriceFromSkuResponse xmlns:ns2="br.com.accurate.acpr.priceservices">
@@ -457,7 +458,7 @@ details {
               <br>
               <p>Exemplo de requisição para política <b>DEFAULT</b> (O SELLER SEMPRE PRECISARÁ ENVIAR UMA POLÍTICA DEFAULT, PARA QUE TODO NOVO CLIENTE CADASTRADO NA PLATAFORMA QUE NÃO FAÇA PARTE DE UMA OUTRA POLITICA COM OUTRO ID DIFERENTE, PRATIQUE OS PREÇOS E PRAZOS DA MESMA).</p>
 
-              <textarea rows="20" cols="100">
+              <textarea rows="20" cols="80">
 
     {
         "id": "DEFAULT",
@@ -1094,7 +1095,7 @@ details {
               <br>
               <h4 align="center">Exemplo de politica de preços CLUSTER (OUTRA POLITICA QUE NÃO SEJA DEFAULT)</h4>
               <br>
-              <textarea rows="20" cols="100">
+              <textarea rows="20" cols="80">
                 
     {
         "criteria": [
@@ -1617,7 +1618,7 @@ details {
               <br>
               <h4 align="center">Exemplo de inclusão de clientes em uma politica já existente</h4>
               <br> 
-               <textarea rows="20" cols="100">
+               <textarea rows="20" cols="80">
                  
     {
         "criteria": [
@@ -1637,7 +1638,7 @@ details {
     <br>
      <h4>Exemplo de requisição para atualizar preços ou incluir produto</h4>
 
-       <textarea rows="20" cols="100">
+       <textarea rows="20" cols="80">
          
     {
         "criteria": [
@@ -1816,7 +1817,7 @@ details {
               <br>
               <p><b>Nome do método: </b> notifyCustomerCreationRequest</p>
               <br>
-               <textarea rows="20" cols="140">
+               <textarea rows="20" cols="100">
           <soapenv:Envelope xmlns:cli="http://www.accurate.com/acec/Customer" xmlns:cus="http://www.accurate.com/acec/CustomerServices" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Header/>
     <soapenv:Body>
@@ -2056,718 +2057,718 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
             <p><b>Objeto integrateOrderRequest</b></p>
 
             <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Parametro</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>order</td>
-            		<td>Pedido</td>
-            		<td>Order (lista que armazenara toda requisição)</td>
-            		<td>Obrigatório</td>
+              <tr>
+                <th width="25%">Parametro</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>order</td>
+                <td>Pedido</td>
+                <td>Order (lista que armazenara toda requisição)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
+              </tr> 
            </table>
             <br>  <p><b>Objeto Order</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>orderId</td>
-            		<td>Identificador do pedido</td>
-            		<td>String (15)</td>
-            		<td>Obrigatório</td>
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>orderId</td>
+                <td>Identificador do pedido</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
-            	<tr>
-            		<td>totalAmount</td>
-            		<td>Valor total do pedido</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            		
-            	</tr>	
-            	<tr>
-            		<td>totalDiscountAmount</td>
-            		<td>Valor total de descontos no pedido</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>purchaseDate</td>
-            		<td>Data e hora do pedido</td>
-            		<td>Date/Time</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>sessionCreationDate</td>
-            		<td>Date e hora da sessão que originou o pedido</td>
-            		<td>Date/Time</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>applicationVersion</td>
-            		<td>Versão da aplicação que gerou o pedido</td>
-            		<td>String (20)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>listId</td>
-            		<td>Identificador da lista que originou o pedido (lista de casamento, desejos, etc)</td>
-            		<td>String (15)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>saleChannel</td>
-            		<td>Canal de venda da plataforma</td>
-            		<td>String (6)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>purchaseOrder</td>
-            		<td>Identificador do pedido de compra de uso do cliente (Exclusivo para Loja Mondelez)</td>
-            		<td>String (10)</td>
-            		<td>Opcional</td>
-            	</tr>		
-            	<tr>
-            		<td>origin</td>
-            		<td>Origem do pedido, exemplo: SITE-CUL, APP-TAQTILE ou DEFAULT</td>
-            		<td>String (20)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>deliveries</td>
-            		<td>Lista de entregas</td>
-            		<td>List <'Delivery'></td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>customer</td>
-            		<td>Cliente (lista de dados)</td>
-            		<td>List <'customer'></td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>billingAddress</td>
-            		<td>Endereço de cobrança</td>
-            		<td>List <'address'></td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>paymentList</td>
-            		<td>Lista de pagamentos</td>
-            		<td>List <'payment'></td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>freightChargedAmount</td>
-            		<td>Valor cobrado de frete</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>freightActualAmount</td>
-            		<td>Valor total de frete</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>countDistinctSku</td>
-            		<td>Contagem distinta dos SKUs do pedido</td>
-            		<td>int</td>
-            		<td>Obrigatório</td>
-            	</tr>	
+              </tr> 
+              <tr>
+                <td>totalAmount</td>
+                <td>Valor total do pedido</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+                
+              </tr> 
+              <tr>
+                <td>totalDiscountAmount</td>
+                <td>Valor total de descontos no pedido</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>purchaseDate</td>
+                <td>Data e hora do pedido</td>
+                <td>Date/Time</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>sessionCreationDate</td>
+                <td>Date e hora da sessão que originou o pedido</td>
+                <td>Date/Time</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>applicationVersion</td>
+                <td>Versão da aplicação que gerou o pedido</td>
+                <td>String (20)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>listId</td>
+                <td>Identificador da lista que originou o pedido (lista de casamento, desejos, etc)</td>
+                <td>String (15)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>saleChannel</td>
+                <td>Canal de venda da plataforma</td>
+                <td>String (6)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>purchaseOrder</td>
+                <td>Identificador do pedido de compra de uso do cliente (Exclusivo para Loja Mondelez)</td>
+                <td>String (10)</td>
+                <td>Opcional</td>
+              </tr>   
+              <tr>
+                <td>origin</td>
+                <td>Origem do pedido, exemplo: SITE-CUL, APP-TAQTILE ou DEFAULT</td>
+                <td>String (20)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>deliveries</td>
+                <td>Lista de entregas</td>
+                <td>List <'Delivery'></td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>customer</td>
+                <td>Cliente (lista de dados)</td>
+                <td>List <'customer'></td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>billingAddress</td>
+                <td>Endereço de cobrança</td>
+                <td>List <'address'></td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>paymentList</td>
+                <td>Lista de pagamentos</td>
+                <td>List <'payment'></td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>freightChargedAmount</td>
+                <td>Valor cobrado de frete</td>
+                <td>Decimal (15,2)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>freightActualAmount</td>
+                <td>Valor total de frete</td>
+                <td>Decimal (15,2)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>countDistinctSku</td>
+                <td>Contagem distinta dos SKUs do pedido</td>
+                <td>int</td>
+                <td>Obrigatório</td>
+              </tr> 
             </table>
             <br>  
             <p><b>Objeto Delivery</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>orderId</td>
-            		<td>Identificador do pedido</td>
-            		<td>String (15)</td>
-            		<td>Obrigatório</td>
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>orderId</td>
+                <td>Identificador do pedido</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
-            		<tr>
-            		<td>deliveryId</td>
-            		<td>Identificador da entrega</td>
-            		<td>String (15)</td>
-            		<td>Obrigatório</td>
+              </tr> 
+                <tr>
+                <td>deliveryId</td>
+                <td>Identificador da entrega</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
-            		</tr>	
-            		<tr>
-            		<td>totalAmount</td>
-            		<td>Valor total da entrega</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
+              </tr> 
+                </tr> 
+                <tr>
+                <td>totalAmount</td>
+                <td>Valor total da entrega</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
-            		<tr>
-	            		<td>totalDiscountAmount</td>
-	            		<td>Valor de descontos na entrega</td>
-	            		<td>Decimal (15,2)</td>
-	            		<td>Obrigatório</td>
-            		</tr>
-            		<tr>
-	            		<td>orderLineList</td>
-	            		<td>Lista de itens da entrega</td>
-	            		<td>List<'OrderLine'></td>
-	            		<td>Obrigatório</td>
-            		</tr>
-            		<tr>
-	            		<td>freightAmount</td>
-	            		<td>Informações do frete da entrega</td>
-	            		<td>Freight</td>
-	            		<td>Opcional</td>
-            		</tr>
-            		<tr>
-	            		<td>deliveryAddress</td>
-	            		<td>Endereço da entrega</td>
-	            		<td>Address</td>
-	            		<td>Obrigatório</td>
-            		</tr>
-				</table>
-				<br>  
+              </tr> 
+                <tr>
+                  <td>totalDiscountAmount</td>
+                  <td>Valor de descontos na entrega</td>
+                  <td>Decimal (15,2)</td>
+                  <td>Obrigatório</td>
+                </tr>
+                <tr>
+                  <td>orderLineList</td>
+                  <td>Lista de itens da entrega</td>
+                  <td>List<'OrderLine'></td>
+                  <td>Obrigatório</td>
+                </tr>
+                <tr>
+                  <td>freightAmount</td>
+                  <td>Informações do frete da entrega</td>
+                  <td>Freight</td>
+                  <td>Opcional</td>
+                </tr>
+                <tr>
+                  <td>deliveryAddress</td>
+                  <td>Endereço da entrega</td>
+                  <td>Address</td>
+                  <td>Obrigatório</td>
+                </tr>
+        </table>
+        <br>  
             <p><b>Objeto OrderLine</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>sku</td>
-            		<td>Identificador do SKU</td>
-            		<td>String (30)</td>
-            		<td>Obrigatório</td>
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>sku</td>
+                <td>Identificador do SKU</td>
+                <td>String (30)</td>
+                <td>Obrigatório</td>
 
-            	</tr>	
-            		<tr>
-            		<td>skuType</td>
-            		<td>Tipo do SKU:<br>
-            			NOR = Normal (cobrado)<br>
-            			FFR = Bonificado (esses itens devem ser faturados com valor zero na NFS)</td>
-            		<td>String (3)</td>
-            		<td>Obrigatório</td>
+              </tr> 
+                <tr>
+                <td>skuType</td>
+                <td>Tipo do SKU:<br>
+                  NOR = Normal (cobrado)<br>
+                  FFR = Bonificado (esses itens devem ser faturados com valor zero na NFS)</td>
+                <td>String (3)</td>
+                <td>Obrigatório</td>
 
-            	</tr>
-            	<tr>
-            		<td>quantity</td>
-            		<td>Quantidade</td>
-            		<td>int</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>catalogListPrice</td>
-            		<td>Preço de listagem base no catálogo do último preço DFL para o produto. Não levando em consideração por qual distribuidor foi enviado.</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            		<tr>
-            		<td>listPrice</td>
-            		<td>Preço de listagem do SKU na sacola.
+              </tr>
+              <tr>
+                <td>quantity</td>
+                <td>Quantidade</td>
+                <td>int</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>catalogListPrice</td>
+                <td>Preço de listagem base no catálogo do último preço DFL para o produto. Não levando em consideração por qual distribuidor foi enviado.</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr> 
+                <tr>
+                <td>listPrice</td>
+                <td>Preço de listagem do SKU na sacola.
 Esse preço pode levar em consideração as taxas de forma de pagamento.</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>		
-            	<tr>
-            		<td>salePrice</td>
-            		<td>Preço da venda.
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr>   
+              <tr>
+                <td>salePrice</td>
+                <td>Preço da venda.
 Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o SKU é uma bonificação esse preço é R$ 0,00.</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>unconditionalDiscountAmount</td>
-            		<td>Descontos incondicionais</td>
-            		<td>Decimal (15,2) </td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>roundingDiscountAmount</td>
-            		<td>Valor total dos arredondamentos de descontos aplicados à linha</td>
-            		<td>Decimal (15,2) </td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>promotionList</td>
-            		<td>Lista de promoções</td>
-            		<td>List<'Promotion'></td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>freight</td>
-            		<td>Informações do frete</td>
-            		<td>Freight</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>kitSkuId</td>
-            		<td>Identificador do KIT</td>
-            		<td>String (30)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>kitSkuName</td>
-            		<td>Nome do KIT, caso esse item seja de um KIT</td>
-            		<td>String (255)</td>
-            		<td>Opcional</td>
-            	</tr>
-				<tr>
-            		<td>kitQuantity</td>
-            		<td>Quantidade desse item no KIT, caso esse item seja de um KIT</td>
-            		<td>int</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>service</td>
-            		<td>É um serviço?</td>
-            		<td>boolean</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>skuName</td>
-            		<td>Nome do SKU</td>
-            		<td>String (255)</td>
-            		<td>Obrigatório</td>
-            	</tr>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>unconditionalDiscountAmount</td>
+                <td>Descontos incondicionais</td>
+                <td>Decimal (15,2) </td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>roundingDiscountAmount</td>
+                <td>Valor total dos arredondamentos de descontos aplicados à linha</td>
+                <td>Decimal (15,2) </td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>promotionList</td>
+                <td>Lista de promoções</td>
+                <td>List<'Promotion'></td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>freight</td>
+                <td>Informações do frete</td>
+                <td>Freight</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>kitSkuId</td>
+                <td>Identificador do KIT</td>
+                <td>String (30)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>kitSkuName</td>
+                <td>Nome do KIT, caso esse item seja de um KIT</td>
+                <td>String (255)</td>
+                <td>Opcional</td>
+              </tr>
+        <tr>
+                <td>kitQuantity</td>
+                <td>Quantidade desse item no KIT, caso esse item seja de um KIT</td>
+                <td>int</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>service</td>
+                <td>É um serviço?</td>
+                <td>boolean</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>skuName</td>
+                <td>Nome do SKU</td>
+                <td>String (255)</td>
+                <td>Obrigatório</td>
+              </tr>
             </table>
             <br>  
             <p><b>Objeto Promotion</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>promotionId</td>
-            		<td>Identificador da promoção</td>
-            		<td>String (255)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>promotionName</td>
-            		<td>Nome da promoção</td>
-            		<td>String (255)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>promotionStartDate</td>
-            		<td>Data de início de validade da promo</td>
-            		<td>DateTime</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>promotionEndDate</td>
-            		<td>Data de fim de validade da promo</td>
-            		<td>DateTime</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>campaignId</td>
-            		<td>Identificador da campanha da promoção</td>
-            		<td>String (255)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>label</td>
-            		<td>Título da promoção aplicada (usada no site para destaque)</td>
-            		<td>String (255)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>type</td>
-            		<td>Tipo da promoção. Ex: Frete, Subtotal, Produto,...</td>
-            		<td>String (255)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>amount</td>
-            		<td>Valor do desconto concedido por está promoção para cada unidade da linha</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>roundingAmount</td>
-            		<td>Valor do arredondamento desconto concedido por está promoção para TODA a linha</td>
-            		<td>Decimal</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>minimumQuantity</td>
-            		<td>Nos casos de promoção compre X pague Y, esse campo contem a quantidade minima para receber o desconto</td>
-            		<td>int</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>couponPromo</td>
-            		<td>Flag que indica se essa promoção será paga pelo fornecedor</td>
-            		<td>boolean</td>
-            		<td>Opcional</td>
-            	</tr>
-            	</table>
-            	<br>  
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>promotionId</td>
+                <td>Identificador da promoção</td>
+                <td>String (255)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>promotionName</td>
+                <td>Nome da promoção</td>
+                <td>String (255)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>promotionStartDate</td>
+                <td>Data de início de validade da promo</td>
+                <td>DateTime</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>promotionEndDate</td>
+                <td>Data de fim de validade da promo</td>
+                <td>DateTime</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>campaignId</td>
+                <td>Identificador da campanha da promoção</td>
+                <td>String (255)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>Título da promoção aplicada (usada no site para destaque)</td>
+                <td>String (255)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>Tipo da promoção. Ex: Frete, Subtotal, Produto,...</td>
+                <td>String (255)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>amount</td>
+                <td>Valor do desconto concedido por está promoção para cada unidade da linha</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>roundingAmount</td>
+                <td>Valor do arredondamento desconto concedido por está promoção para TODA a linha</td>
+                <td>Decimal</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>minimumQuantity</td>
+                <td>Nos casos de promoção compre X pague Y, esse campo contem a quantidade minima para receber o desconto</td>
+                <td>int</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>couponPromo</td>
+                <td>Flag que indica se essa promoção será paga pelo fornecedor</td>
+                <td>boolean</td>
+                <td>Opcional</td>
+              </tr>
+              </table>
+              <br>  
             <p><b>Objeto Freight</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>chargedAmount</td>
-            		<td>Valor de frete cobrado</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>actualAmount</td>
-            		<td>Valor de frete sem descontos</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>commercialAmount</td>
-            		<td>Margem comercial de frete</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>freightTime</td>
-            		<td>Tempo do frete</td>
-            		<td>int</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>pickupLeadTime</td>
-            		<td>Tempo de espera no armazem</td>
-            		<td>int</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>logisticContract</td>
-            		<td>Contrato logístico</td>
-            		<td>String (25)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>expectedDeliveryDate</td>
-            		<td>Data estimada de entrega</td>
-            		<td>Date</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>adjustedDeliveryDate</td>
-            		<td>Data estimada de entrega ajustada</td>
-            		<td>Date</td>
-            		<td>Opcional</td>
-            	</tr>	
-            </table>		
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>chargedAmount</td>
+                <td>Valor de frete cobrado</td>
+                <td>Decimal (15,2)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>actualAmount</td>
+                <td>Valor de frete sem descontos</td>
+                <td>Decimal (15,2)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>commercialAmount</td>
+                <td>Margem comercial de frete</td>
+                <td>Decimal (15,2)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>freightTime</td>
+                <td>Tempo do frete</td>
+                <td>int</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>pickupLeadTime</td>
+                <td>Tempo de espera no armazem</td>
+                <td>int</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>logisticContract</td>
+                <td>Contrato logístico</td>
+                <td>String (25)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>expectedDeliveryDate</td>
+                <td>Data estimada de entrega</td>
+                <td>Date</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>adjustedDeliveryDate</td>
+                <td>Data estimada de entrega ajustada</td>
+                <td>Date</td>
+                <td>Opcional</td>
+              </tr> 
+            </table>    
             <br>  
             <p><b>Objeto Address</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>addressId</td>
-            		<td>  Tipo do endereço (0-Pessoal [PERSONAL](Cobrança), 1-Presente [GIFT](Entrega))</td>
-            		<td>int</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>recipientNm</td>
-            		<td>Nome do destinatário</td>
-            		<td>String (100)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>address</td>
-            		<td>Logradouro</td>
-            		<td>String (100)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>addressNr</td>
-            		<td>Número</td>
-            		<td>String (10)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>additionalInfo</td>
-            		<td>Informações adicionais</td>
-            		<td>String (100)</td>
-            		<td>Opcional</td>
-            	</tr>	
-            	<tr>
-            		<td>quarter</td>
-            		<td>Bairro</td>
-            		<td>String (80)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>city</td>
-            		<td>Cidade</td>
-            		<td>String (60)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>state</td>
-            		<td>Estado</td>
-            		<td>String (2)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>countryId</td>
-            		<td>Identificação do País. Baseado na ISO-3166, padrão alpha 2</td>
-            		<td>String (2)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>postalCd</td>
-            		<td>CEP</td>
-            		<td>String (8)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>postalCdIntl</td>
-            		<td>Código Postal Internacional</td>
-            		<td>String (8)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>reference</td>
-            		<td>Referência para a entrega</td>
-            		<td>String (100)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>friendlyNm</td>
-            		<td>Identificação do endereço</td>
-            		<td>String (100)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>intercom</td>
-            		<td>Indica se existe interfone</td>
-            		<td>boolean</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>lift</td>
-            		<td>Indica se existe elevador</td>
-            		<td>boolean</td>
-            		<td>Opcional</td>
-            	</tr>
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>addressId</td>
+                <td>  Tipo do endereço (0-Pessoal [PERSONAL](Cobrança), 1-Presente [GIFT](Entrega))</td>
+                <td>int</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>recipientNm</td>
+                <td>Nome do destinatário</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>address</td>
+                <td>Logradouro</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>addressNr</td>
+                <td>Número</td>
+                <td>String (10)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>additionalInfo</td>
+                <td>Informações adicionais</td>
+                <td>String (100)</td>
+                <td>Opcional</td>
+              </tr> 
+              <tr>
+                <td>quarter</td>
+                <td>Bairro</td>
+                <td>String (80)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>city</td>
+                <td>Cidade</td>
+                <td>String (60)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>state</td>
+                <td>Estado</td>
+                <td>String (2)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>countryId</td>
+                <td>Identificação do País. Baseado na ISO-3166, padrão alpha 2</td>
+                <td>String (2)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>postalCd</td>
+                <td>CEP</td>
+                <td>String (8)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>postalCdIntl</td>
+                <td>Código Postal Internacional</td>
+                <td>String (8)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>reference</td>
+                <td>Referência para a entrega</td>
+                <td>String (100)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>friendlyNm</td>
+                <td>Identificação do endereço</td>
+                <td>String (100)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>intercom</td>
+                <td>Indica se existe interfone</td>
+                <td>boolean</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>lift</td>
+                <td>Indica se existe elevador</td>
+                <td>boolean</td>
+                <td>Opcional</td>
+              </tr>
             </table>
             <br>  
             <p><b>Objeto Customer</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>customerId</td>
-            		<td>Identificador do cliente</td>
-            		<td>String (15)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>documentNumber</td>
-            		<td>CNPJ do cliente</td>
-            		<td>String (15)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>name</td>
-            		<td>Razão Social do cliente</td>
-            		<td>String (100)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>email</td>
-            		<td>Email</td>
-            		<td>String (255)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>phoneMobile</td>
-            		<td>Telefone celular</td>
-            		<td>String (20)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>phoneOffice</td>
-            		<td>Telefone comercial</td>
-            		<td>String (20)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>state_subscription</td>
-            		<td>Inscrição estadual</td>
-            		<td>String (20)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>representativeNm</td>
-            		<td>Nome do representante comercial</td>
-            		<td>String (100)</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>createDt</td>
-            		<td>Data de criação do cliente</td>
-            		<td>Date</td>
-            		<td>Opcional</td>
-            	</tr>
-            	<tr>
-            		<td>updateDt</td>
-            		<td>Data da última atualização do cliente</td>
-            		<td>Date</td>
-            		<td>Opcional</td>
-            	</tr>
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>customerId</td>
+                <td>Identificador do cliente</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>documentNumber</td>
+                <td>CNPJ do cliente</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>name</td>
+                <td>Razão Social do cliente</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>email</td>
+                <td>Email</td>
+                <td>String (255)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>phoneMobile</td>
+                <td>Telefone celular</td>
+                <td>String (20)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>phoneOffice</td>
+                <td>Telefone comercial</td>
+                <td>String (20)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>state_subscription</td>
+                <td>Inscrição estadual</td>
+                <td>String (20)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>representativeNm</td>
+                <td>Nome do representante comercial</td>
+                <td>String (100)</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>createDt</td>
+                <td>Data de criação do cliente</td>
+                <td>Date</td>
+                <td>Opcional</td>
+              </tr>
+              <tr>
+                <td>updateDt</td>
+                <td>Data da última atualização do cliente</td>
+                <td>Date</td>
+                <td>Opcional</td>
+              </tr>
             </table>
              <br>  
             <p><b>Objeto Payment Informações</b></p>
             <p>A plataforma Infrashop pode trabalhar com alguns tipos de pagamentos diferentes, porém o Middleware vai trabalhar apenas com os tipos abaixo:</p>
-            <li style="margin-right: 10px"><b>abstractPayment:</b> contém informações genéricas do pagamento, como: tipo do pagamento e valor	</li>
+            <li style="margin-right: 10px"><b>abstractPayment:</b> contém informações genéricas do pagamento, como: tipo do pagamento e valor </li>
             <li><b>creditCardPayment:</b> contém informações específicas de pagamento com cartão de crédito, como: quantidade de parcelas.<b>abstractPayment:</b> contém informações genéricas do pagamento, como: tipo do pagamento e valor.</li>
              <br>  
             <p><b>Objeto abstractPayment</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>paymentType</td>
-            		<td>Tipos de pagamento:
-            		<li>BILL: Boleto à vista</li>	
-            		<li>CRL-{Dias}:Boleto Faturado, onde {dias}representa a quantidade
-            		de dias para o vencimento. Ex: 7, 14,21,28.</li>
-            		<li>COUPON: Vale Troca </li>	
-            		<li>CREDIT_SITE: Vale Compra Agora. Crédito disponível para o cliente no site (fidelidade)
-            		</li>
-            		<li>PIX: DISPONÍVEL PARA ALGUMAS LOJAS. CONSULTAR A DISPONIBILIDADE JUNTO A INFRACOMMERCE.</li>
-            		</td>
-            		<td>String (4000)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>value</td>
-            		<td>Valor pago através desse meio de pagamento</td>
-            		<td>Decimal (15,2)</td>
-            		<td>Obrigatório</td>
-            	</tr>
-            	<tr>
-            		<td>billType</td>
-            		<td>Informa para o cliente qual o tipo de limite de crédito utilizado na venda (SELLER/IFC)
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>paymentType</td>
+                <td>Tipos de pagamento:
+                <li>BILL: Boleto à vista</li> 
+                <li>CRL-{Dias}:Boleto Faturado, onde {dias}representa a quantidade
+                de dias para o vencimento. Ex: 7, 14,21,28.</li>
+                <li>COUPON: Vale Troca </li>  
+                <li>CREDIT_SITE: Vale Compra Agora. Crédito disponível para o cliente no site (fidelidade)
+                </li>
+                <li>PIX: DISPONÍVEL PARA ALGUMAS LOJAS. CONSULTAR A DISPONIBILIDADE JUNTO A INFRACOMMERCE.</li>
+                </td>
+                <td>String (4000)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>value</td>
+                <td>Valor pago através desse meio de pagamento</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>billType</td>
+                <td>Informa para o cliente qual o tipo de limite de crédito utilizado na venda (SELLER/IFC)
 Caso o tipo de pagamento não seja boleto faturado, o campo irá vazio.</td>
-            		<td>String(6)</td>
-            		<td>Obrigatório apenas para integrações com limite de crédito gerenciado pelo Infrapay (limite de credito infracommerce)</td>
-            	</tr>
+                <td>String(6)</td>
+                <td>Obrigatório apenas para integrações com limite de crédito gerenciado pelo Infrapay (limite de credito infracommerce)</td>
+              </tr>
             </table>
             <br>  
             <p><b>Objeto creditCardPayment</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>paymentType</td>
-            		<td>Tipo do Pagamento:
-            			<li>CREDIT_CARD: Cartão de crédito</li>
-            		</td>
-            		<td>String (4000)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>value</td>
-            		<td>Valor pago através desse meio de pagamento</td>
-            		<td>String (4000)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>numberOfInstallments</td>
-            		<td>Quantidade de parcelas</td>
-            		<td>int</td>
-            		<td>Obrigatório</td>
-            	</tr>	
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>paymentType</td>
+                <td>Tipo do Pagamento:
+                  <li>CREDIT_CARD: Cartão de crédito</li>
+                </td>
+                <td>String (4000)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>value</td>
+                <td>Valor pago através desse meio de pagamento</td>
+                <td>String (4000)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>numberOfInstallments</td>
+                <td>Quantidade de parcelas</td>
+                <td>int</td>
+                <td>Obrigatório</td>
+              </tr> 
             </table>
 
              <br>  
             <p><b>Objeto integrateOrderResponse</b></p>
              <table style="border: 1p%">
-            	<tr>
-            		<th width="25%">Campo</th>
-            		<th width="25%">Descrição</th>
-            		<th width="25%">Tipo</th>
-            		<th width="25%">Obrigatoriedade</th>
-            	</tr>	
-            	<tr>
-            		<td>status</td>
-            		<td>Status da resposta da integração de pedido. 
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>status</td>
+                <td>Status da resposta da integração de pedido. 
 Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O status OK também deve ser retornado quando reenviamos um pedido em caso de solicitação do seller
-            		</td>
-            		<td>String (4000)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
-            	<tr>
-            		<td>message</td>
-            		<td>Mensagem indicando se o pedido foi recebido com sucesso ou se houve um erro. Caso seja uma mensagem indicando o erro deve-se colocar o máximo possível de informação para ajudar a identificar o problema. Como padrão esperamos. "Pedido integrado com sucesso" para o primeiro envio e , "Pedido ja existe no ERP caso o mesmo pedido seja reenviado pela plataforma."
-            		</td>
-            		<td>String (4000)</td>
-            		<td>Obrigatório</td>
-            	</tr>	
+                </td>
+                <td>String (4000)</td>
+                <td>Obrigatório</td>
+              </tr> 
+              <tr>
+                <td>message</td>
+                <td>Mensagem indicando se o pedido foi recebido com sucesso ou se houve um erro. Caso seja uma mensagem indicando o erro deve-se colocar o máximo possível de informação para ajudar a identificar o problema. Como padrão esperamos. "Pedido integrado com sucesso" para o primeiro envio e , "Pedido ja existe no ERP caso o mesmo pedido seja reenviado pela plataforma."
+                </td>
+                <td>String (4000)</td>
+                <td>Obrigatório</td>
+              </tr> 
             </table>
              <br>  
             <p><b>Informações Complementares sobre tipos de pedidos</b></p>
-            <br>	
+            <br>  
 
            <p>
-           	<li style="margin-right: 10px">Um pedido de boleto antecipado, será enviado a informação "BILL" na tag paymentType</li>
-           	<li>Um pedido de cartão de crédito, será enviado a informação "CREDIT_CARD" na tag paymentType</li>
-           	<li>Um pedido de Boleto Faturado, será enviado a informação "CRL-{dias}" na tag paymentType</li>
-           	<li>Um pedido de vale troca, será enviado a informação "COUPON" na tag paymentType</li>
-           	<li>Um pedido de vale compra agora, será enviado a informação "CREDIT_SITE" na tag paymentType</li>
-           	<li>Um pedido de vale troca, poderá ser mesclado com outra forma de pagamento como por exemplo boleto antecipado e cartão de crédito, quando o valor do pedido exceder o valor do voucher, neste caso o pedido terá duas formas de pagamentos na informação do pedido. OBS: não será possível mesclar com boleto faturado.</li>
+            <li style="margin-right: 10px">Um pedido de boleto antecipado, será enviado a informação "BILL" na tag paymentType</li>
+            <li>Um pedido de cartão de crédito, será enviado a informação "CREDIT_CARD" na tag paymentType</li>
+            <li>Um pedido de Boleto Faturado, será enviado a informação "CRL-{dias}" na tag paymentType</li>
+            <li>Um pedido de vale troca, será enviado a informação "COUPON" na tag paymentType</li>
+            <li>Um pedido de vale compra agora, será enviado a informação "CREDIT_SITE" na tag paymentType</li>
+            <li>Um pedido de vale troca, poderá ser mesclado com outra forma de pagamento como por exemplo boleto antecipado e cartão de crédito, quando o valor do pedido exceder o valor do voucher, neste caso o pedido terá duas formas de pagamentos na informação do pedido. OBS: não será possível mesclar com boleto faturado.</li>
            </p>
-           <br>	
+           <br> 
            <h3 align="center">Exemplo de requisições de pedidos com diferentes formas de pagamento</h3>
            <br>
            <p>A fim de apoiar no entendimento, segue alguns XML’s que contém a estrutura de diferentes tipos de pedidos para apoiar de forma visual os objetos que são enviados nos pedidos e considerações.</p>
            <br>
            <h4>Pedido com boleto antecipado, com promoção e produtos dinstintos</h4>
-           <textarea rows="20" cols="90">
+           <textarea rows="20" cols="82">
 
-           	<soapenv:Envelope xmlns:boor="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+            <soapenv:Envelope xmlns:boor="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
    <soapenv:Body>
       <boor:integrateOrderRequest>
@@ -3562,12 +3563,12 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </soapenv:Envelope>
           </textarea>
           <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, foi enviado para o endpoint do distribuidor o pedido CAG-61111702, no valor de R$1864.31. Esse pedido teve um desconto de R$315.34 e foi feito com a forma de pagamento boleto antecipado(<'paymentType>BILL<'/paymentType>) </b>	
+                <b style="vertical-align: right">No exemplo de requisição, foi enviado para o endpoint do distribuidor o pedido CAG-61111702, no valor de R$1864.31. Esse pedido teve um desconto de R$315.34 e foi feito com a forma de pagamento boleto antecipado(<'paymentType>BILL<'/paymentType>) </b>  
             </div>
             <br>
             <br>
            <h4>Pedido com Cartão de crédito e promoção</h4>
-           <textarea rows="20" cols="90">
+           <textarea rows="20" cols="82">
             <soapenv:Envelope xmlns:boor="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header/>
   <soapenv:Body>
@@ -3735,7 +3736,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
             </div>
             <br>
             <h4>Pedido com boleto faturado para 7 sem promoção</h4>
-           <textarea rows="20" cols="90">
+           <textarea rows="20" cols="82">
 
        <soapenv:Envelope xmlns:boor="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header/>
@@ -3855,7 +3856,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
              <br>
             <h4>Pedido com boleto faturado para 14 dias contendo produtos bonificados</h4>
-           <textarea rows="20" cols="90">
+           <textarea rows="20" cols="82">
            
            <soapenv:Envelope xmlns:boor="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header/>
@@ -4010,7 +4011,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <br>
 
               <h4 align="center">Exemplo padrão de resposta</h4>
-               <textarea rows="20" cols="90">
+               <textarea rows="20" cols="82">
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
   <env:Body>
     <integrateOrderResponse xmlns="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration">
@@ -4022,7 +4023,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                </textarea>
 <br>
         <h4 align="center">Exemplo para caso o pedido ja exista no ERP</h4>
-               <textarea rows="20" cols="90">
+               <textarea rows="20" cols="82">
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
   <env:Body>
     <integrateOrderResponse xmlns="http://www.accurate.com/acec/AcecBOSOAIntegration/BOOrderIntegration">
@@ -4042,7 +4043,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
 
 
-            		
+                
 
           </details>
           <details><!--08 - Informar criação de setup-->
@@ -4063,7 +4064,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
             <p><b>Para pedidos que recebem confirmações de pagamento:</b> a confirmação de pagamento é enviada em até 8 dias corridos, importante que neste prazo, o seller mantenha a reserva de estoque, por este motivo, é importante que o seller não efetue o cancelamento neste período.</p>
             <br>
             <h4 align="center">Exemplo de requisição de pagamento aprovado</h4>
-            <textarea rows="15" cols="90">
+            <textarea rows="15" cols="82">
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://www.accurate.com/acec/PaymentServices">
     <soapenv:Header/>
     <soapenv:Body>
@@ -4084,7 +4085,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
   <li><b>status: </b> <b>AP</b> indica que foi pago.<b>RP</b> indica que o pedido não foi pago (para esses casos o pedido nao segue o fluxo de vida)</li>
 <br>
 <h4 align="center">Exemplo de requisição de pagamento aprovado</h4>
-<textarea rows="15" cols="90">
+<textarea rows="15" cols="82">
   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://www.accurate.com/acec/PaymentServices">
     <soapenv:Header/>
     <soapenv:Body>
@@ -4102,7 +4103,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
 <p>Abaixo segue o modelo de retorno que o web service de pagamento, hospedado no distribuidor, deve enviar para cada integração que houver sucesso. Valido tanto para pagamento aprovado quanto reprovado.</p>
 <br>
-<textarea rows="15" cols="90">
+<textarea rows="15" cols="82">
   <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
    <env:Body>
       <confirmPaymentResponse xmlns="http://www.accurate.com/acec/PaymentServices">
@@ -4140,7 +4141,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <b>FAT - Finalização de faturamento OBRIGATÓRIA</b>- Essa tracking indica o encerramento do faturamento, uma vez que ela é enviada, não será integrada mais nenhuma nota fiscal. Essa tracking, indicamos que o seller envie depois de alguns minutos após a NFS para evitar algum erro de integração (Pois um pedido com a tracking FAT precisa ter uma NFS). Assim como A NFS, e uma tracking<b>obrigatória</b>, pois sem ela, a platafoma reconhecerá o faturamento do pedido. É essencial que todo pedido que possuir NFS, logo na sequencia, possuir também a tracking de faturamento (FAT) a fim de evitar divergencias em repasses.
               </p>
               <p>
-              	<b>ETR- Opcional</b> Entrega em andamento – Indica que a entrega está em andamento, deve ser utilizada para somente casos em que o distribuidor possibilita enviar informações de rastreio da entrega.
+                <b>ETR- Opcional</b> Entrega em andamento – Indica que a entrega está em andamento, deve ser utilizada para somente casos em que o distribuidor possibilita enviar informações de rastreio da entrega.
               </p>
               <p>ENT- Obrigatória - Entrega concluída - Essa tracking indica que o pedido foi entregue.
               </p>
@@ -4151,7 +4152,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <br>
               <h3>Ciclo de trackings para pedidos boleto faturado</h3>
               <p>
-              	<br>
+                <br>
               <b>MAP- Opcional -</b>Analise de credito aprovada: Informará para plataforma que apesar do pedido ser efetuado com limite de crédito já efetuado em site, seguirá com o mesmo.
               <p><b>WMS - NFS - FAT - ETR - ENT:</b> Seguir com a mesma sequencia após o envio da MAP, exemplo ilustrativo:</p>
               <br>
@@ -4194,7 +4195,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <br>
               <br>
               <b style="text-align: center; color: #FF4500">Requisição MAP - Análise do limite de crédito aprovada. - APENAS PARA PEDIDOS DE BOLETO FATURADO.(Opcional):</b><br>
-                        <textarea rows="17" cols="82" style="align-self: ">
+                        <textarea rows="17" cols="80" style="align-self: ">
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4208,15 +4209,15 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-</soapenv:Envelope>        	
+</soapenv:Envelope>         
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MAP informando para plataforma que a analise de crédito para plataforma foi aprovada, para o pedido 1826201. Essa tracking é opcional e caso utilizada, deve ser aplicada apenas para pedidos com a forma de pagameneto boleto faturado.</b>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MAP informando para plataforma que a analise de crédito para plataforma foi aprovada, para o pedido 1826201. Essa tracking é opcional e caso utilizada, deve ser aplicada apenas para pedidos com a forma de pagameneto boleto faturado.</b>  
             </div>
             <br>
               <b style="text-align: center;">Requisição WMS - Separação e embalagem - (Opcional)</b><br>
               
-                <textarea rows="17" cols="82" style="align-self: ">
+                <textarea rows="17" cols="80" style="align-self: ">
          <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4233,13 +4234,13 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </soapenv:Envelope>
                 </textarea>
                  <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, foi enviado para a plataforma a informação que o pedido 1826201 entrou em separação e embalagem.</b>	
+                <b style="vertical-align: right">No exemplo de requisição, foi enviado para a plataforma a informação que o pedido 1826201 entrou em separação e embalagem.</b> 
             </div>
               <br>
               <br>
               <b style="text-align: center;">Requisição NFS - Nota Fiscal emitida:</b><br>
               
-              <textarea rows="17" cols="82" style="align-self: ">
+              <textarea rows="17" cols="80" style="align-self: ">
  <soapenv:Envelope xmlns:inv="http://www.accurate.com/acec/InvoiceInfo" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4268,15 +4269,15 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-</soapenv:Envelope>   	
+</soapenv:Envelope>     
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição trata-se de uma emissão de nota fiscal emitida para o pedido 1826201, que contém 11 unidades do produto 7312040070756C1, esse produto possui o valor unitário de R$24.40. O campo "inv:issuerDocumentNr 11111222000233  deve ser informado o CNPJ do distribuidor"</b>	
-            </div>	
+                <b style="vertical-align: right">No exemplo de requisição trata-se de uma emissão de nota fiscal emitida para o pedido 1826201, que contém 11 unidades do produto 7312040070756C1, esse produto possui o valor unitário de R$24.40. O campo "inv:issuerDocumentNr 11111222000233  deve ser informado o CNPJ do distribuidor"</b>  
+            </div>  
             <br>
               <br>
-              	<b style="text-align: center;">Requisição FAT - Finalização do faturamento:</b><br>
-              	<textarea rows="17" cols="82" style="align-self: ">
+                <b style="text-align: center;">Requisição FAT - Finalização do faturamento:</b><br>
+                <textarea rows="17" cols="80" style="align-self: ">
   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4290,16 +4291,16 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-  </soapenv:Envelope>	
-              	</textarea>
+  </soapenv:Envelope> 
+                </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking FAT para o pedido 1826201, que indica a finalização do faturamento do pedido. Uma vez que ela é enviada e nenhuma outra nota fiscal poderá ser enviada. Importante se atentar ao cenário de sempre enviar a tracking FAT para pedidos que houveram emissao de NFS, para evitar divergencias nos repasses ao seller.</b>	
-            </div>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking FAT para o pedido 1826201, que indica a finalização do faturamento do pedido. Uma vez que ela é enviada e nenhuma outra nota fiscal poderá ser enviada. Importante se atentar ao cenário de sempre enviar a tracking FAT para pedidos que houveram emissao de NFS, para evitar divergencias nos repasses ao seller.</b> 
+            </div>  
              <br>
               <br>
               <b style="text-align: center;">Requisição ETR - Entrega em andamento - Opcional:</b><br>
               
-              <textarea rows="17" cols="82" style="align-self: ">
+              <textarea rows="17" cols="80" style="align-self: ">
  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4327,16 +4328,16 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
       </trac:captureTrackingRequest>
    </soapenv:Body>
 </soapenv:Envelope>
-             	
-              </textarea>	
+              
+              </textarea> 
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking ETR para o pedido 1826201, que indica que o mesmo encontra-se na transportadora, essa tracking é opcional e deve ser utilizada para distribuidores que possuem controle de rastreamento do pedido, conforme e possível visualizar o exemplo no objeto objectId, informando o codigo de rastreamento.</b>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking ETR para o pedido 1826201, que indica que o mesmo encontra-se na transportadora, essa tracking é opcional e deve ser utilizada para distribuidores que possuem controle de rastreamento do pedido, conforme e possível visualizar o exemplo no objeto objectId, informando o codigo de rastreamento.</b>  
             </div>
             <br>
               <br>
               <b style="text-align: center;">Requisição ENT - Entrega Concluída:</b><br>
               
-              <textarea rows="17" cols="82" style="align-self: ">
+              <textarea rows="17" cols="80" style="align-self: ">
  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4350,10 +4351,10 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-</soapenv:Envelope>             	
+</soapenv:Envelope>               
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking ENT para o pedido 1826201, que indica que o mesmo encontra-se foi entregue, encerrando totalmente o ciclo de vida de um pedido com ciclo completo</b>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking ENT para o pedido 1826201, que indica que o mesmo encontra-se foi entregue, encerrando totalmente o ciclo de vida de um pedido com ciclo completo</b> 
             </div>
 
 
@@ -4361,18 +4362,18 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <br>
               <h3 style="color: red">Exemplo de retorno que deve ser retornado para requisições de tracking</h3>
               
-              <textarea rows="17" cols="82" style="align-self: ">
+              <textarea rows="17" cols="80" style="align-self: ">
  <?xml version = '1.0' encoding = 'UTF-8'?>
 <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
-	<env:Body>
-		<captureTrackingResponse xmlns="http://www.accurate.com/acec/TrackingServices">
-			<success>true</success>
-		</captureTrackingResponse>
-	</env:Body>
-</env:Envelope>      	
+  <env:Body>
+    <captureTrackingResponse xmlns="http://www.accurate.com/acec/TrackingServices">
+      <success>true</success>
+    </captureTrackingResponse>
+  </env:Body>
+</env:Envelope>       
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">Esse retorno deverá ser informado na resposta para todos os tipos de requisições de trackings</b>	
+                <b style="vertical-align: right">Esse retorno deverá ser informado na resposta para todos os tipos de requisições de trackings</b>  
             </div>
 
               <div class="div1"></div>
@@ -4380,7 +4381,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <h3>Cancelar pedidos</h3>
               <br>
               <b style="text-align: center; color: #FF4500">Requisição MNA - Análise do limite de crédito reprovado - APENAS PARA PEDIDOS DE BOLETO FATURADO.(Opcional):</b><br>
-                        <textarea rows="17" cols="82" style="align-self: ">
+                        <textarea rows="17" cols="80" style="align-self: ">
  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4394,14 +4395,14 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-</soapenv:Envelope>         	
+</soapenv:Envelope>           
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MNA informando para plataforma que a analise de crédito para plataforma foi reprovada, para o pedido 52388314. Porém para efetivar de fato o cancelamento, deverá ser enviado pelo distribuidor, a tracking de cancelamento na sequencia, conforme o proximo exemplo. Importante ressaltar que essa tracking é opcional e exclusiva para pedidos realizados com a forma de pagamento em boleto faturado, não deve ser utilizada para pedidos com as demais formas de pagamentos.</b>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MNA informando para plataforma que a analise de crédito para plataforma foi reprovada, para o pedido 52388314. Porém para efetivar de fato o cancelamento, deverá ser enviado pelo distribuidor, a tracking de cancelamento na sequencia, conforme o proximo exemplo. Importante ressaltar que essa tracking é opcional e exclusiva para pedidos realizados com a forma de pagamento em boleto faturado, não deve ser utilizada para pedidos com as demais formas de pagamentos.</b>  
             </div>
                    <br>
               <b style="text-align: center; ">Requisição CAN - CANCELAMENTO - obrigatório para cancelar pedidos:</b><br>
-                        <textarea rows="17" cols="82" style="align-self: ">
+                        <textarea rows="17" cols="80" style="align-self: ">
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4415,17 +4416,17 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
          </trac1:trackingList>
       </trac:captureTrackingRequest>
    </soapenv:Body>
-</soapenv:Envelope> 	
+</soapenv:Envelope>   
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking CAN informando para plataforma que o pedido 52388314 foi cancelado. Essa mesma estrutura de trackig de cancelamento e utilizada para os demais tipos de pedidos. A unica diferença é que para boleto faturado o seller pode enviar o MNA a nivel de relatório. O Cancelamento é obrigatório para todos os tipos de pedidos que deverão ser cancelados. </b>	
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking CAN informando para plataforma que o pedido 52388314 foi cancelado. Essa mesma estrutura de trackig de cancelamento e utilizada para os demais tipos de pedidos. A unica diferença é que para boleto faturado o seller pode enviar o MNA a nivel de relatório. O Cancelamento é obrigatório para todos os tipos de pedidos que deverão ser cancelados. </b> 
             </div>
 
                 <div class="div1"></div>
-               <h3>Apoios para situações distintas de cenários de trackings</h3>	
+               <h3>Apoios para situações distintas de cenários de trackings</h3>  
                <br>
               <b style="text-align: center; ">TRACKING NFS para pedidos que contém itens bonificados:</b><br>
-                        <textarea rows="17" cols="82 " style="align-self: ">
+                        <textarea rows="17" cols="80 " style="align-self: ">
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
    <soapenv:Body>
       <trac:captureTrackingRequest>
@@ -4464,7 +4465,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </soapenv:Envelope>
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de envio para tracking NFS para o pedido 52388318, foi informado que o pedido possui 21 unidades do SKU 7891050004604 com preço unitário no valor de R$11.20, e neste pedido, houveram 3 unidades do mesmo SKU bonificado, sendo enviado com a tag unitPrice = 0.00 e também o codigo do kit (kitSkuId) que é declarado no pedido. Observação, o seller pode optar em enviar duas notas, uma para os itens cobrados e outra para os bonificados dependendo do seu modelo de negócio, levando em consideração que a tracking FAT só deverá ser enviada após o envio de todas as notas, se assim preferir. </b>	
+                <b style="vertical-align: right">No exemplo de envio para tracking NFS para o pedido 52388318, foi informado que o pedido possui 21 unidades do SKU 7891050004604 com preço unitário no valor de R$11.20, e neste pedido, houveram 3 unidades do mesmo SKU bonificado, sendo enviado com a tag unitPrice = 0.00 e também o codigo do kit (kitSkuId) que é declarado no pedido. Observação, o seller pode optar em enviar duas notas, uma para os itens cobrados e outra para os bonificados dependendo do seu modelo de negócio, levando em consideração que a tracking FAT só deverá ser enviada após o envio de todas as notas, se assim preferir. </b> 
             </div>
               <div class="div1"></div>
 

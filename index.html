@@ -114,7 +114,8 @@ td:first-child + td + td {  width: 120px }
  display: inline;
  width: 40%;
  float: right;
- font-size: 60%
+ font-size: 53%;
+ line-height: 22px;
 }
 
 li {
@@ -144,6 +145,14 @@ details {
     body {
         font-size: 1.5rem;
     }  
+
+}
+
+@media(max-width: 500px){
+textarea {
+      width: 200px;
+    }
+
 }
 
 @media (max-width: 899px) {
@@ -194,10 +203,9 @@ details {
             <h3>Web services que devem ser disponibilizados pelo distribuidor:</h3>
             <br>
             <p><b>Cliente</b> (Protocolo Soap) - Do lado distribuidor, será necessário disponibilizar um endpoint de cliente para que a plataforma envie cadastros de clientes e atualizações, em nosso material de apoio é disponibilizado os arquivos WSDL e XSD’s para que sejam importados em um servidor IIS, por exemplo, para torná-lo público. </p>
-            <br>
-            <p><b>Pedido</b> (Protocolo Soap) Seguindo o mesmo conceito de cliente, porém para receber pedidos da plataforma.
-              <br>
-              <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX, Boleto a Vista), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.
+            <p><b>Pedido</b> (Protocolo Soap) Seguindo o mesmo conceito de cliente, porém para receber pedidos da plataforma.</p>
+              
+              <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX, Boleto a Vista), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.</p>
                 <br>
                 <br>
                 <h4>Pré-requisitos dos endpoints acima:</h4>
@@ -4473,7 +4481,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
           </details>
           <details><!--10 - Enviar Endpoint para o Seller-->
             <summary>11 - Material de Apoio para construção dos Web sevices</summary>
-            <h4>WSDL E XSD</h4>
+            <a href="/Infrashop-Middleware-B2B-Integration-.zip" download>Clique Aqui para efetuar o download</a>
 
           </details>
          

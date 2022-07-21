@@ -264,9 +264,34 @@ textarea {
           
           <details><!--01 - Reunião de Kickoff-->
             <summary>02 - Requisições de estoque</summary>
-            <p>No modeo abaixo segue exemplo de envio de estoque contendo duas formas, uma requisição única para um produto e também uma requisição contendo mais de um produto. As integrações de estoque são realizadas no protocolo Soap. As Urls e dados de autenticãções são disponibilizados pela Infracommerce ao Seller.</p>
+            <br>
+            <p>No modelo abaixo segue exemplo de envio de estoque contendo duas formas, uma requisição única para um produto e também uma requisição contendo mais de um produto. As integrações de estoque são realizadas no protocolo Soap. As Urls e dados de autenticãções são disponibilizados pela Infracommerce ao Seller.</p>
+          <br>
+            <h3>Regras</h3>
+            
+
+            <li>O distribuidor deve ser capaz de definir de quanto em quanto tempo a integração de estoque deve ocorrer, para que sejam enviadas em períodos pré-determinados e não a todo momento que há alguma alteração de estoque em algum SKU.</li>
+            <li>Só enviar a integração de atualização de estoque para SKUs que tenham alteração em sua quantidade de 5% ou mais desde a última integração enviada. <b>Importante que o Seller não envie carga FULL a todo momento para não onerar a fila de integração.</b></li>
+            <li>A quantidade enviada deve ser em numeral, sem casas decimais e, consequentemente, sem ponto ou virgula.</li>
+            <li>Para distribuidores que trabalham com venda de caixas ou múltiplos, mas controlam seus estoques em sistemas internos e centro de distribuição por unidades, é necessário que os estoques sejam enviados para cada SKU respeitando a lógica de unidade ou caixa vendida no site. Ou seja, neste caso, o estoque deve ser calculado para a versão da caixa.</li>
+
+            <br>
+            <h4>Exemplo aplicado para estoque em caixa:</h4>
+            <br>
+
+            <p>Se SKU1234 (exemplo fictício) tem 1000 unidades em estoque, mas é vendido em caixa com 4 unidades:</p>
+            <p>Se for vender SKU1234C4 precisa enviar 250 como quantidade para o SKU1234C4, pois 1000/4=250. Se enviasse 1000, permitiríamos que o cliente compre até 1000 caixas de 4, totalizando 4000 unidades.</p>
+            <p><b>Atenção:</b> Este desenvolvimento só é necessário para distribuidores que enviam integrações de SKU’s de caixas que não são trabalhadas fisicamente pelo distribuidor</p>
+             <p>O distribuidor deve ser capaz de desabilitar a trava, caso a tenha, de envio de estoque via integração apenas quando o SKU respeitar a regra de possuir estoque mínimo suficiente para a venda de pelo menos 3 dias (D-3) de venda.</p>
+             <br>
+             <h3>Apoio para o desenvolvimento</h3>
+
+            <li>O Web Service responsável pela integração de estoque é o<b>StockServices.</b></li>
+            <li>A operação responsável pela integração de estoque é a<b>setStock.</b></li>
+            <li>Esse WebService fica hospedado no Middleware, portanto, deve ser chamada pelo Distribuidor. O material da apoio para construção dos WSDL e XSD estão presentes no item 11 do manual.</li>
             <b></b>
             <h4 align="center"> Requisição com um produto</h4>
+            <br>
             <b></b>
              <textarea rows="20" cols="80">
               <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
@@ -284,7 +309,12 @@ textarea {
    </soapenv:Body>
 </soapenv:Envelope>
 </textarea>
+<br>
+<br>
+
+
  <h4 align="center"> Requisição com mais de um produto</h4>
+ <br>
  <textarea rows="20" cols="80">
    <stoc:setStockRequest xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
    <stoc:stockList>
@@ -301,6 +331,8 @@ textarea {
    </stoc:stockList>
 </stoc:setStockRequest>
  </textarea>
+ <br>
+ <br>
   <h4 align="center"> Exemplo de retorno da plataforma</h4>
   <br>
         <textarea rows="20" cols="80">
@@ -4481,7 +4513,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
           </details>
           <details><!--10 - Enviar Endpoint para o Seller-->
             <summary>11 - Material de Apoio para construção dos Web sevices</summary>
-            <a href="/ifcrollout/Infrashop-Middleware-B2B-Integration-.rar" download>Clique Aqui para efetuar o download</a>
+            <a href="/ifcrollout/Infrashop-Middleware-B2B-Integration-.rar" download>Clique aqui para efetuar o download</a>
 
           </details>
          

@@ -263,7 +263,7 @@ textarea {
              </details>
           
           <details><!--01 - Reunião de Kickoff-->
-            <summary>02 - Requisições de estoque</summary>
+            <summary>02 - Integração de estoque</summary>
             <br>
             <p>No modelo abaixo segue exemplo de envio de estoque contendo duas formas, uma requisição única para um produto e também uma requisição contendo mais de um produto. As integrações de estoque são realizadas no protocolo Soap. As Urls e dados de autenticãções são disponibilizados pela Infracommerce ao Seller.</p>
           <br>
@@ -346,16 +346,102 @@ textarea {
 </env:Envelope>
 
         </textarea>
+<br>
+
+        <div class="div1"></div>
+            <h3>Objetos que contemplam a integração de Estoque.</h3>
+            <br>
+            <p><b>Objeto setStockRequest</b></p>
+
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>stockList</td>
+                <td>Lista de estoque</td>
+                <td>List<'Stock></td>
+                <td>Obrigatório</td>
+
+              </tr> 
+            </table>
+            <br>
+
+              <p><b>Objeto Stock</b></p>
 
 
-            
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>skuId</td>
+                <td>EAN do SKU</td>
+                <td>String (30)</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+               <tr>
+                <td>stockType</td>
+                <td>Indica disponibilidade de estoque.
+0 = indisponível.
+1 = disponível.</td>
+                <td>int</td>
+                <td>Opcional desde que seja enviado stockTypeSourceName</td>
+
+              </tr> 
+                  <tr>
+                <td>stockTypeSourceName</td>
+                <td>Se será controlado por unidade enviar valor
+controlUnitQuantity</td>
+                <td>String (30)</td>
+                <td>Opcional</td>
+
+              </tr> 
+                 <tr>
+                <td>quantity</td>
+                <td>Se for controlado por unidade enviar a quantidade de estoque</td>
+                <td>int</td>
+                <td>Opcional, mas deve ser passado caso seja enviando stockTypeSourceName para indicar a quantidade real.</td>
+              </tr> 
+            </table>
+            <br>
+             <p><b>Objeto Objeto setStockResponse</b></p>
+             <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>result</td>
+                <td>Contém uma mensagem indicando se o estoque foi recebido com sucesso ou se houve um erro.</td>
+                <td>String (30)</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+          </table>
+           <div class="div1"></div>
+           <br>
+
           </details>
           <details><!-- 02- Criar Grupo-->
             <summary>03 - Preços XML</summary>
             <br>
-            <p>Existem duas formas de envios de preços para a plataforma. no formato XML, seguindo o mesmo protocolo das demais integrações (SOAP) onde os preços enviados pelo distribuidor, serão aplicados para todos os clientes de sua região de atendimento e o padrão REST, que será apresentado no menu 3 com mais detalhes.
+            <p>Existem duas formas de envios de preços para a plataforma. no formato XML, seguindo o mesmo protocolo das demais integrações (SOAP) onde os preços enviados pelo distribuidor, serão aplicados para todos os clientes de sua região de atendimento e o padrão REST, que será apresentado no menu 4 com mais detalhes.
              A estrutura é composta por dois parametros: O produto informado e a tabela de preço que deseja enviar para o produto. Segue abaixo alguns exemplos de tabelas de preços que ajudarão a entender melhor.
+             <p>Vale ressaltar que os itens 3 e 4 deste material, não funcionam simultaneamente, portanto, caso o seller optar por trabalhar com um unico preço para todos os clientes, deve optar por este item 3. Caso o distribuidor optar por trabalhar com multiplas tabelas de preços diferenciadas, desenvolver o item 4.</p>
              <br><br>
+
+            <h3>Tabelas de preços</h3>
+
              <b>DFL</b> = Preço à vista. Obrigatório para que um produto apareça no site.
             <br>
              <b>CRL-7</b> = Boleto faturado para 7 dias
@@ -467,10 +553,103 @@ textarea {
   </S:Body>
 </S:Envelope>
            </textarea>
+<br>
+
+        <div class="div1"></div>
+            <h3>Objetos que contemplam a integração de Preços XML.</h3>
+            <br>
+            <p><b>Objeto integrateProductPriceFromSku</b></p>
+
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Parâmetro</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>sku_list</td>
+                <td>Lista do objeto sku</td>
+                <td>List<'Sku></td>
+                <td>Obrigatório</td>
+
+              </tr> 
+            </table>
+            <br>
+            <p><b>Objeto Sku</b></p>
+
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>skuId</td>
+                <td>Código do sku do produto</td>
+                <td>String (30)</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+                <tr>
+                <td>productPriceList</td>
+                <td>Lista de objetos ProductPrice</td>
+                <td>List<'ProductPrice></td>
+                <td>Obrigatório</td>
+
+              </tr> 
+            </table>
+            <br>
+            <p><b>Objeto ProductPrice</b></p>
+
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>priceValue</td>
+                <td>Valor do preço</td>
+                <td>Decimal (15,2)</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+                 <tr>
+                <td>priceTp</td>
+                <td>Tabela de preço</td>
+                <td>String (10)</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+</table>
+<br>
+    <p><b>Objeto integrateProductPriceFromSkuResponse</b></p>
+    <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>result</td>
+                <td>String (4000)</td>
+                <td>Contém uma mensagem indicando se o preço foi recebido com sucesso ou se houve um erro.
+</td>
+                <td>Obrigatório</td>
+
+              </tr> 
+            </table>
+            <div class="div1"></div>
+
           </details>
           <details><!--03 - Validação de EndPoint-->
             <br> 
             <br>  
+
             
           
             <summary>04 - Politica de preços (JSON)</summary>
@@ -488,8 +667,9 @@ textarea {
               <br>
               <h4 align="center">Detalhes sobre regras de negócios para políticas de preços </h4>
               <br>
-              <p>A politica com ID <b>"DEFAULT"</b> que veremos nos exemplos abaixo, se aplicará para todos os clientes que não fazem parte de outra politica de preços que o seller irá enviar. Ou seja, quando um novo cliente realizar o cadastro na plataforma, automaticamente estará na politica Default, e praticará os preços que foram enviados para ela (os preços a prazo, só estarão disponíveis para clientes que possuirem status de aprovação e limite de crédito concedido).</p>
-              <br>
+              <p>A politica com ID <b>"DEFAULT"</b> que veremos nos exemplos abaixo, se aplicará para todos os clientes que não fazem parte de outra politica de preços que o seller irá enviar. Ou seja, quando um novo cliente realizar o cadastro na plataforma, automaticamente estará na politica Default, e praticará os preços que foram enviados para ela (os preços a prazo, só estarão disponíveis para clientes que possuirem status de aprovação e limite de crédito concedido). Tendo em vista esse cenário, não há a necessidade de incluir todos os CNPJs que farão parte da politica DEFAULT. A plataforma considera que todos os CNPJs restantes que não estão relacionados a nenhuma outra politica, ingressem na DEFAULT.</p>
+              <p>Cenários onde serão devem ser enviados clientes para politica Default: apenas em casos onde o distribuidor pretender mover um cliente de uma politica cluster para default.</p>
+             
               <p>O distribuidor pode enviar outras políticas além da politica default, atribuindo para cada política: produtos, tabelas de preços e clientes, para que assim, pratique preços diferenciados para os seus clientes conforme a necessidade do negócio.</p>
               <br>
               <p><b>Regras</b>: Um cliente só pode fazer parte de uma política de preços, sendo assim: caso o mesmo esteja em uma política diferente do default, o mesmo enxergará apenas os preços que foram enviados para ela.</p>
@@ -1813,6 +1993,344 @@ textarea {
        <p>No exemplo acima, foram atualizados dois produtos para a politica_cluster. Ou seja, as requisições enviadas anteriormente permanecerão na plataforma e apenas os dois produtos foram alterados. O mesmo vale para inclusao de novos produtos.</p>
        <br>
 
+       <h3>API's GET e POST</h3>
+       <br> 
+
+       <p><B>Exemplo de Soliticação API GET (resgatar o token de autenticação)</B></p>
+<p>HTTPS GET /Oauth/token/?username=<B>{{price-policy-user}}</B>&password=<B>{{price-policy-pass}}</B></p>
+<br>  
+      <p><b>Objetos API GET (disponibilizado pela plataforma)</b></p>
+
+                    <table style="border: 1p%">
+              <tr>
+                <th width="25%">price-policy-user</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>price-policy-user</td>
+                <td>Usuário</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>price-policy-pass</td>
+                <td>Senha</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+</table>
+<br>  
+    <p><b>Exemplo de retorno </b> </p>
+    <textarea rows="18" cols="85" >
+{
+    "access_token": "b8a4b0f8-ca43-11ec-9193-0050568179c1",
+    "token_type": "bearer",
+    "refresh_token": "12f33435-0c37-11ed-9486-0050568179c1",
+    "expires_in": 1658809819,
+    "scope": "read write",
+    "authorities": [
+        "Prices",
+        "Policies",
+        "Customers",
+        "PricesPoliciesCustomer",
+        "PricesPoliciesPrice"
+    ]
+}
+
+    </textarea>
+
+<div class="sidebar">
+                <b style="vertical-align: right">
+                  <li style="font-size: 100%">access_token será utilizado para autenticar a requisição da API POST</li>
+                  <li style="font-size: 100%">token_type mostra o tipo de protocolo de autenticação, neste caso é to tipo bearer</li>
+
+                </b>  
+            </div>
+            <br>  
+                        <p><b>Detalhes dos objetos de retorno</b></p>
+
+            <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>access_token</td>
+                <td>Token de autenticação para API de envios (POST)</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>token_type</td>
+                <td>Tipo de token</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>refresh_token</td>
+                <td>Token para solicitar um novo token*</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+                </tr>
+              <tr>
+                <td>expires_in</td>
+                <td>Tempo de validade em milisegundos do token</td>
+                <td>Number</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>scope</td>
+                <td>Escopo do usuário</td>
+                <td>String (100)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>profile_id</td>
+                <td>Identificador do perfil do usuário</td>
+                <td>Number</td>
+                <td>Opcional</td>
+              </tr>
+               <tr>
+                <td>authorities</td>
+                <td>Lista de permissões do usuário</td>
+                <td>Lista de Objetos</td>
+                <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>user_id</td>
+                <td>Identificador do usuário</td>
+                <td>Number</td>
+                <td>Obrigatório</td>
+              </tr>
+
+</table>
+  <br>
+
+     <p><b>Detalhes dos objetos de retorno da API POST</b></p>
+
+   <br>
+   <p>Os seguintes modelos são aplicados nas chamadas de criação, atualização e deleção de políticas de preço. (API POST disponibilizada pela infracommerce).</p>
+
+   <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>id</td>
+                <td>Identificador da política de preço</td>
+                <td>String (40)</td>
+                <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>criteria</td>
+                <td>Critérios da política de preço</td>
+                <td>Objeto (Customer)</td>
+                <td>"Opcional", Usado apenas quando será enviado clientes na requisição</td>
+              </tr>
+                 <tr>
+                <td>policy</td>
+                <td>Definição da política de preços</td>
+                <td>Objeto (Politica)</td>
+                <td>"Opcional", usado quando há necessidade de atualizar ou incluir produtos ou preços.</td>
+              </tr>
+              <tr>
+                <td>policy</td>
+                <td>Definição da política de preços</td>
+                <td>Objeto (Politica)</td>
+                <td>"Opcional", usado quando há necessidade de atualizar ou incluir produtos ou preços.</td>
+              </tr>
+            </table>
+             <br>
+
+     <p><b>Objeto Criteria</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>customerDocumentList</td>
+                <td>CNPJ do cliente do distribuidor</td>
+                <td>String (15)</td>
+                <td>Obrigatório</td>
+              </tr>
+            </table>
+            <br>
+
+               <p><b>Objeto Policy</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+              <tr>
+                <td>customerPriceList</td>
+                <td>Lista de preços|customizados</td>
+                <td>Objeto</td>
+                <td>Obrigatório quando incluido preços ou produtos.</td>
+              </tr>
+
+                  <tr>
+                <td>paymentList</td>
+                <td>Lista de tipo de pagamento</td>
+                <td>Objeto</td>
+                <td>Opcional</td>
+              </tr>
+            </table>
+
+            <br>
+
+               <p><b>Objeto CustomerPriceList</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>productPriceList</td>
+                <td>Lista de preços</td>
+                <td>Objeto</td>
+                <td>Obrigatório nas requisições de produtos ou preços</td>
+              </tr>
+               <tr>
+                <td>skuId</td>
+                <td>ID do produto (SkuId)</td>
+                <td>String(30)</td>
+                <td>Obrigatório nas requisições de produtos ou preços</td>
+              </tr>
+            </table>
+
+              <br>
+
+               <p><b>Objeto ProductPriceList</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>productPrice</td>
+                <td>Lista de tipos de preços do SKU</td>
+                <td>Objeto</td>
+                <td>Obrigatório</td>
+              </tr>
+            </table>
+            <br>
+
+                 <p><b>Objeto ProductPrice</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>priceTp</td>
+                <td>Tipos de preços de acordo com a tabela abaixo.</td>
+                <td>String(10)</td>
+                <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>priceValue</td>
+                <td>Valor del preço</td>
+                <td>Number</td>
+                <td>Obrigatório</td>
+              </tr>
+            </table>
+
+             <br>
+
+               <p><b>Tabelas de preços</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">PriceTp</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>DFL</td>
+                <td>Tabela de preços base (preço a vista).</td>
+                <td>Obrigatório para que o produto apareça no site.</td>
+              </tr>
+               <tr>
+                <td>CRL-7</td>
+                <td>Tabela de preço de boleto faturado para 7 dias.</td>
+                <td>opcional, porém necessário testa em etapa de homologação</td>
+              </tr>
+                <tr>
+                <td>CRL-14</td>
+                <td>Tabela de preço de boleto faturado para 14 dias.</td>
+                <td>opcional, porém necessário testa em etapa de homologação</td>
+              </tr>
+               </tr>
+                <tr>
+                <td>CRL-21</td>
+                <td>Tabela de preço de boleto faturado para 21 dias.</td>
+                <td>opcional, porém necessário testa em etapa de homologação</td>
+              </tr>
+               <td>CRL-28</td>
+                <td>Tabela de preço de boleto faturado para 28 dias.</td>
+                <td>opcional, porém necessário testa em etapa de homologação</td>
+              </tr>
+              <td>CRL-7_14_21_28</td>
+                <td>Tabela de preço de boleto faturado parcelado</td>
+                <td>opcional, tabelas parceladas só poderão ser habilitadas somente em produção</td>
+              </tr>
+</table>  
+
+
+             <br>
+
+               <p><b>Modelo de Dados para as Respostas para API de envio de preços</b></p>
+        <table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>success</td>
+                <td>Indica se a solicitude foi executada com sucesso</td>
+                <td>Boolean</td>
+                  <td>Obrigatório</td>
+              </tr>
+
+                <tr>
+                <td>skusErrors</td>
+                <td>Lista de erros chados nos SKUs</td>
+                <td>List</td>
+                  <td>Obrigatório (será gerado só quando houver erros)</td>
+              </tr>
+              <tr>
+                <td>customersErrors</td>
+                <td>Lista de erros achados nos critérios</td>
+                <td>List</td>
+                  <td>Obrigatório (será gerado só quando houver erros)</td>
+              </tr>
+            </table>  
+
+
+
+              
+
 
 
 
@@ -1923,6 +2441,203 @@ textarea {
                <br>
 
 
+<p><b>Objeto notifyCustomerCreationRequest</b></p>
+<br>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>customer</td>
+                <td>Cliente que foi criado</td>
+                <td>Customer</td>
+                  <td>Obrigatório</td>
+              </tr>
+</table>
+<br>
+<p><b>Objeto Customer</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>documentNr</td>
+                <td>CNPJ do cliente</td>
+                <td>String (15)</td>
+                  <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Razão Social do cliente</td>
+                <td>String (100)</td>
+                  <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td>Email</td>
+                <td>String (255)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                 <tr>
+                <td>stateSubscription</td>
+                <td>Inscrição estadual</td>
+                <td>String (20)</td>
+                  <td>Opcional, quando não houver incrição, será enviado o campo sem dados</td>
+              </tr>
+                   <tr>
+                <td>representativeNm</td>
+                <td>Nome do representante comercial</td>
+                <td>String (100)</td>
+                  <td>Opcional</td>
+              </tr>
+                     <tr>
+                <td>createDate</td>
+                <td>Data de criação</td>
+                <td>Date/Time</td>
+                  <td>Opcional</td>
+              </tr>
+                    <tr>
+                <td>addressList</td>
+                <td>Lista de endereços</td>
+                <td>List<'Address></td>
+                  <td>Opcional</td>
+              </tr>
+                  <tr>
+                <td>phoneList</td>
+                <td>Lista de telefones</td>
+                <td>List<'Phone></td>
+                  <td>Opcional</td>
+              </tr>
+            </table>  
+            <br>
+<p><b>Objeto Address</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>recipientNm</td>
+                <td>Nome do destinatário</td>
+                <td>String (100)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                 <tr>
+                <td>address</td>
+                <td>Logradouro</td>
+                <td>String (100)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                  <tr>
+                <td>addressNr</td>
+                <td>Número</td>
+                <td>String (10)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>additionalInfo</td>
+                <td>Informações adicionais</td>
+                <td>String (100)</td>
+                  <td>Opcional</td>
+              </tr>
+               <tr>
+                <td>quarter</td>
+                <td>Bairro</td>
+                <td>String (80)</td>
+                  <td>Obrigatório</td>
+              </tr>
+              <tr>
+                <td>city</td>
+                <td>Cidade</td>
+                <td>String (60)</td>
+                  <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>state</td>
+                <td>UF do Estado</td>
+                <td>String (2)</td>
+                  <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>postalCd</td>
+                <td>CEP</td>
+                <td>String (8)</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+
+            <br>
+<p><b>Objeto Phone</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>phoneTp</td>
+                <td>Tipo do telefone: 1 – Comercial
+2 – Celular</td>
+                <td>int</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>areaCd</td>
+                <td>Código de área (DDD)</td>
+                <td>String (4)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>phoneNr</td>
+                <td>Número do telefone</td>
+                <td>long</td>
+                  <td>Obrigatório</td>
+              </tr>
+
+
+            </table>
+  <br>
+<p><b>Objeto notifyCustomerCreationResponse</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+               <tr>
+                <td>status</td>
+                <td>Status da aptidão do cliente para realizar compras.<br>
+
+                  <li style="font-size:  90%"><b style="background-color: white">PEN</b>: Pendente de análise. Primeiro status que deve ser retornado pelo distribuidor durante o envio de um novo cadastro via plataforma.</li>
+                  <li style="font-size:  90%"><b style="background-color: white">APV</b>: Aprovado, esse retorno só deve ser realizado em caso de atualização cadastral, para manter o mesmo status de aprovado, caso o mesmo tenha sido aprovado anteriormente </li>
+                  <li style="font-size:  90%"><b style="background-color: white">RPV</b>: reprovado, retornar esse status na mesma condição do contexto do aprovado. </li></td>
+                <td>String (3)</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+
+            <p>Informações complementares sobre o retorno para melhor entendimento: Todo novo cliente cadastrado na plataforma é enviado para o distribuidor, o retorno da requisição do web service do distribuidor deverá ser PEN, com esse status, o cliente poderá efetuar pedidos nas modalidades de pedidos, cujo meio de pagamento é gerenciado pela plataforma. Porém, é possível deixar uma flag ativa na plataforma, que possibilite que, somente um cliente com status de aprovação consiga efetuar quaisquer tipo de pedido.</p>
+            <p>Toda vez que o cliente realiza uma alteração cadastral na plataforma, é enviado uma nova notificação de cadastro para o distribuidor por completa, nesta, o distribuidor pode retornar APV ou RPV dependendo do cenário atual em que o cliente se encontra.</p>
+            <br>
+            <br>
+
+
+
           </details>
           <details><!--05 - Ticket de premissas-->
             <summary>
@@ -1987,6 +2702,57 @@ textarea {
       </soapenv:Envelope>           
                
     </textarea>         
+
+
+     <br>
+<p><b>Objeto updateCustomerRequest</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>customer</td>
+                <td>No escopo do Middleware (aprovação/bloqueio do cliente) é necessário enviar apenas o campo documentNr.</td>
+                <td>Customer</td>
+                  <td>Obrigatório</td>
+              </tr>
+
+
+
+               <tr>
+                <td>status</td>
+                <td>Status da aptidão do cliente para realizar compras.<br>
+
+                  <li style="font-size:  90%"><b style="background-color: white">APV </b>: Aprovado para realizar compras, incluive, caso o seller necessite enviar valores em limite de crédito, o cliente precisará estar com status aprovado.</li>
+                  <li style="font-size:  90%"><b style="background-color: white">RPV</b>: Bloqueia o cliente para efetuar compras, com quaisquer modalidades de meios de pagamentos.</li>
+                </td>
+                <td>String (3)</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+
+             <br>
+<p><b>Objeto updateCustomerResponse</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>status</td>
+                <td>Status da atualização do cliente.
+Será enviado “OK” (sem aspas) quando o cliente for atualizado com sucesso.</td>
+                <td>String (3)</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>  
 
           </details>
           <details><!--06 - Tipo de rollout-->

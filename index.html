@@ -125,6 +125,36 @@ li {
   font-size: 60%;
 }
 
+sumary:before{
+  background: #24ff0b;
+} 
+
+summary:hover{border: 1px solid pink ;
+  content: '';
+cursor: pointer;
+position: relative;
+transition: 0.5s;
+border-left: 30px solid #B34965;
+margin:4px 0;
+list-style: none;
+left: 0;
+color: #231933;
+padding: 8px;
+display:inline-block;
+z-index: 1;
+height: 100%;
+widht:100%;
+  !important
+
+ }
+
+ sumary::before{
+color border: 100px solid Black
+
+ }
+
+
+
 p {
   font-size: 75%;
 }
@@ -136,6 +166,7 @@ details {
   box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
   border-radius: 5px;
   overflow: hidden;
+
 }
 
 
@@ -2821,6 +2852,81 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
             </table>
 
             </p>
+            <br>
+
+<p><b>Objeto replaceVoucherRequest</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Parametro</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>coupons</td>
+                <td>Lista de atualizações de limite de crédito</td>
+                <td>List<'Coupon></td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+             <br>
+
+<p><b>Objeto Coupon</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>customerDocumentNr</td>
+                <td>CNPJ do cliente</td>
+                <td>String (15)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>value</td>
+                <td>Valor disponível para o limite de crédito</td>
+                <td>Decimal (15.2) Valores com separados com ponto e não virgula</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>origin</td>
+                <td>Valor disponível para o limite de crédito</td>
+                <td>Este campo identifica para onde o distribuidor está passando o crédito do cliente. Caso Selecione IFC o campo value é desconsiderado, caso mande SELLER, o funcionamento se mantém como é hoje em dia.
+Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+              <br>
+
+<p><b>replaceVoucherResponse</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>Success</td>
+                <td>String(4000)</td>
+                <td>Contém uma mensagem indicando se o preço foi recebido com sucesso ou se houve um erro.</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+
+
+
+
+
+
+
+
             <div class="div1"></div>
           </details>
           <details><!--07 - Criação do monday-->
@@ -4920,6 +5026,68 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </textarea>  
             
 
+              <br>
+
+<p><b>Objeto confirmPaymentRequest</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Parametro</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>orderId</td>
+                <td>Identificador do pedido</td>
+                <td>String(15)</td>
+                  <td>Obrigatório</td>
+              </tr>
+
+
+                 <tr>
+                <td>amount</td>
+                <td>Valor total do pedido</td>
+                <td>Decimal</td>
+                  <td>Obrigatório</td>
+              </tr>
+                 <tr>
+                <td>status</td>
+                <td>Status do pagamento:
+<li style="font-size:  90%"><b style="background-color: white">AP</b>: Indica que o pagamento foi aprovado</li>
+<li style="font-size:  90%"><b style="background-color: white">RP</b>: Indica que o pagamento foi reprovado, neste caso o pedido não poderá seguir o fluxo de vida.
+
+                </td>
+                <td>String(3)</td>
+                  <td>Obrigatório</td>
+              </tr>
+            </table>
+
+            <br>
+
+<p><b>Objeto confirmPaymentResponse</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>success</td>
+                <td>boolean</td>
+                <td>Enviar true quando a aprovação/reprovação de pagamento tiver sido recebida com sucesso. O valor false será entendido como erro e a aprovação/reprovação de pagamento será enviada novamente.</td>
+                  <td>Obrigatório</td>
+              </tr>
+</table>
+
+<br>
+<br>
+
+
+
+
 
             <hr>
           </details>
@@ -5273,6 +5441,206 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <div class="sidebar">
                 <b style="vertical-align: right">No exemplo de envio para tracking NFS para o pedido 52388318, foi informado que o pedido possui 21 unidades do SKU 7891050004604 com preço unitário no valor de R$11.20, e neste pedido, houveram 3 unidades do mesmo SKU bonificado, sendo enviado com a tag unitPrice = 0.00 e também o codigo do kit (kitSkuId) que é declarado no pedido. Observação, o seller pode optar em enviar duas notas, uma para os itens cobrados e outra para os bonificados dependendo do seu modelo de negócio, levando em consideração que a tracking FAT só deverá ser enviada após o envio de todas as notas, se assim preferir. </b> 
             </div>
+
+
+<br>
+<p><b>Modelo de dados</b></p>
+<br>
+<p><b>Objeto captureTrackingRequest</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Parametro</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>trackingList</td>
+                <td>Lista do objeto Tracking</td>
+                <td>List<'Tracking></td>
+                  <td>Obrigatório</td>
+              </tr>
+</table>
+
+<br>
+<p><b>Objeto Tracking</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>orderId</td>
+                <td>Identificador do pedido</td>
+                <td>String (20)</td>
+                  <td>Obrigatório</td>
+              </tr>
+              </tr> 
+                <tr>
+                <td>controlPointId</td>
+                <td>Identificador do ponto de controle (Verificar na tabela Tipos de Tracking) </td>
+                <td>String (5)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>controlPointNm</td>
+                <td>Descrição do ponto de controle </td>
+                <td>String (100)</td>
+                  <td>Obrigatório</td>
+              </tr>
+               <tr>
+                <td>occurrenceDt</td>
+                <td>Data da ocorrência do evento </td>
+                <td>Date</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>invoiceUrl</td>
+                <td>URL de acesso a nota fiscal eletrônica </td>
+                <td>String (2500)</td>
+                  <td>Obrigatório</td>
+              </tr>
+                <tr>
+                <td>invoiceInfo</td>
+                <td>Informações adicionais sobre nota fiscal  </td>
+                <td>InvoiceInfo</td>
+                  <td>Obrigatório</td>
+              </tr>
+                 <tr>
+                <td>skuDeliveryTrackingList</td>
+                <td>Lista de todos os itens faturados.  </td>
+                <td>SkuDeliveryTrackingList</td>
+                  <td>Obrigatório para o tracking NFS</td>
+              </tr>
+</table>
+<br>
+<p><b>Objeto InvoiceInfo</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>issuerDocumentNr</td>
+                <td>CNPJ Emissor</td>
+                <td>String (15)</td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+                    <tr>
+                <td>invoiceNumber</td>
+                <td>Número da nota fiscal</td>
+                <td>String (20)</td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+                    <tr>
+                <td>invoiceSerialNumber</td>
+                <td>Número de série</td>
+                <td>String (255)</td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+                    <tr>
+                <td>invoiceEmissionDate</td>
+                <td>Data da emissão</td>
+                <td>Date</td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+                     <tr>
+                <td>invoiceEletronicKey</td>
+                <td>Chave de acesso da nota fiscal</td>
+                <td>String (255)</td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+                     <tr>
+                <td>objectDataList</td>
+                <td>Dados específicos relacionados ao tracking.</td>
+                <td>List<'ObjectData></td>
+                  <td>Opcional para o tracking FAT</td>
+                </tr>
+
+</table>
+
+<br>
+<p><b>Objeto SkuDeliveryTrackingList</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>skuDeliveryTracking</td>
+                <td>Lista de SKUs que foram faturados</td>
+                <td>List<'SkuDeliveryTracking></td>
+                  <td>Obrigatório para o tracking NFS</td>
+                </tr>
+</table>
+
+<br>
+<p><b>Objeto SkuDeliveryTracking</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>skuId</td>
+                <td>EAN do SKU</td>
+                <td>String (30)</td>
+                  <td>Obrigatório</td>
+                </tr>
+                   <tr>
+                <td>unitPrice</td>
+                <td>Valor unitário faturado</td>
+                <td>Decimal (15,2)</td>
+                  <td>Obrigatório, valores separados por ponto</td>
+                </tr>
+                   <tr>
+                <td>preparedQt</td>
+                <td>Quantidade faturada</td>
+                <td>int</td>
+                  <td>Obrigatório</td>
+                </tr>
+                     <tr>
+                <td>kitSkuId</td>
+                <td>Id do KIT do SKU</td>
+                <td>String (30)</td>
+                  <td>Obrigatório apenas para SKUs que fazem parte de um KIT. Essa informação e resgatada no XML do pedido que possui kit.</td>
+                </tr>
+</table>
+
+
+<br>
+<p><b>Objeto captureTrackingResponse</b></p>
+
+<table style="border: 1p%">
+              <tr>
+                <th width="25%">Campo</th>
+                <th width="25%">Descrição</th>
+                <th width="25%">Tipo</th>
+                 <th width="25%">Obrigatoriedade</th>
+              </tr> 
+                <tr>
+                <td>success</td>
+                <td>Determina se a captura ocorreu com sucesso.</td>
+                <td>Boolean</td>
+                  <td>Obrigatório</td>
+                </tr>
+</table>  
+
+
+
               <div class="div1"></div>
 
             </section>

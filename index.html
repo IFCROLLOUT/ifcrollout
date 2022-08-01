@@ -89,12 +89,13 @@ td:first-child + td + td {  width: 120px }
 }  
 
 #footer .container {
+    position: relative;
+    display: block;
+
     margin-left: 1.5rem;
-    margin-right: 1.5rem; 
-    background: #333;
-    color: aliceblue;
-    border-radius:  0 0 0.6rem  0.6rem;
-    box-shadow: 1px 0px 1px 1px #333;
+margin-right: 1.5rem;
+    top: 0px;
+    background: linear-gradient(90deg, #E52862 0%, #7A6CFF 28.56%, #FFAC48 50.32%, #43BDDE 73.36%, #32CC7E 100%);
 
 }
 
@@ -5648,11 +5649,13 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
           </details>
           <details><!--10 - Enviar Endpoint para o Seller-->
             <summary>11 - Material de Apoio para construção dos Web sevices</summary>
-            <a href="/ifcrollout/Infrashop-Middleware-B2B-Integration-.rar" download>Clique aqui para efetuar o download</a>
+            <p>O material disponibilizado para download, possui todos os arquivos WSDL e XSD necessários para construção dos web services. Para essa integração, sérá necessário como pré requisito, a disponibilização dos endpoints de cliente, pedido e pagamento.</p>
+            <p><a style="font-size: 90%" href="/ifcrollout/Infrashop-Middleware-B2B-Integration-.rar" download>Clique aqui para efetuar o download</a></p>
 
-          </details>
-         
-        
+
+<a  style="font-size: 43%" style="text-align: right"  href="https://faqrollout.helpsite.com">Acesse nossa FAQ em caso de maiores dúvidas.</a>
+<br>
+
       
          
           
@@ -5664,8 +5667,8 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
     <!--footer-->
     <footer id="footer">
       <div class="container">
-        <small>A solution developed by Rollout IFC 2022</small>
-         <img src="img/unnamed.gif" width="1.8%" align="right">
+        <small style="font-size: 60%">A solution developed by Rollout IFC 2022</small>
+         <img src="img/unnamed.gif" width="1.6%" align="left" border="1px">
       </div>
     </footer>
     <!--end footer-->

@@ -397,7 +397,7 @@ textarea {
                 <td>stockList</td>
                 <td>Lista de estoque</td>
                 <td>List<'Stock></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
             </table>
@@ -406,7 +406,7 @@ textarea {
               <p><b>Objeto Stock</b></p>
 
 
-            <table style="border: 1p%">
+            <table style="margin-right: 20px">
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -417,7 +417,7 @@ textarea {
                 <td>skuId</td>
                 <td>EAN do SKU</td>
                 <td>String (30)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                <tr>
@@ -457,7 +457,7 @@ controlUnitQuantity</td>
                 <td>result</td>
                 <td>Contém uma mensagem indicando se o estoque foi recebido com sucesso ou se houve um erro.</td>
                 <td>String (30)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
           </table>
@@ -604,7 +604,7 @@ controlUnitQuantity</td>
                 <td>sku_list</td>
                 <td>Lista do objeto sku</td>
                 <td>List<'Sku></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
             </table>
@@ -622,14 +622,14 @@ controlUnitQuantity</td>
                 <td>skuId</td>
                 <td>Código do sku do produto</td>
                 <td>String (30)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                 <tr>
                 <td>productPriceList</td>
                 <td>Lista de objetos ProductPrice</td>
                 <td>List<'ProductPrice></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
             </table>
@@ -647,14 +647,14 @@ controlUnitQuantity</td>
                 <td>priceValue</td>
                 <td>Valor do preço</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                  <tr>
                 <td>priceTp</td>
                 <td>Tabela de preço</td>
                 <td>String (10)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
 </table>
@@ -672,7 +672,7 @@ controlUnitQuantity</td>
                 <td>String (4000)</td>
                 <td>Contém uma mensagem indicando se o preço foi recebido com sucesso ou se houve um erro.
 </td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
             </table>
@@ -2045,13 +2045,13 @@ controlUnitQuantity</td>
                 <td>price-policy-user</td>
                 <td>Usuário</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>price-policy-pass</td>
                 <td>Senha</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
 </table>
 <br>  
@@ -2095,32 +2095,32 @@ controlUnitQuantity</td>
                 <td>access_token</td>
                 <td>Token de autenticação para API de envios (POST)</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>token_type</td>
                 <td>Tipo de token</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>refresh_token</td>
                 <td>Token para solicitar um novo token*</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
                 </tr>
               <tr>
                 <td>expires_in</td>
                 <td>Tempo de validade em milisegundos do token</td>
                 <td>Number</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>scope</td>
                 <td>Escopo do usuário</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>profile_id</td>
@@ -2132,13 +2132,13 @@ controlUnitQuantity</td>
                 <td>authorities</td>
                 <td>Lista de permissões do usuário</td>
                 <td>Lista de Objetos</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>user_id</td>
                 <td>Identificador do usuário</td>
                 <td>Number</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
 
 </table>
@@ -2149,7 +2149,7 @@ controlUnitQuantity</td>
    <br>
    <p>Os seguintes modelos são aplicados nas chamadas de criação, atualização e deleção de políticas de preço. (API POST disponibilizada pela infracommerce).</p>
 
-   <table style="border: 1p%">
+    <table style="margin-right: 20px">
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -2160,7 +2160,7 @@ controlUnitQuantity</td>
                 <td>id</td>
                 <td>Identificador da política de preço</td>
                 <td>String (40)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>criteria</td>
@@ -2168,17 +2168,11 @@ controlUnitQuantity</td>
                 <td>Objeto (Customer)</td>
                 <td>"Opcional", Usado apenas quando será enviado clientes na requisição</td>
               </tr>
-                 <tr>
-                <td>policy</td>
-                <td>Definição da política de preços</td>
-                <td>Objeto (Politica)</td>
-                <td>"Opcional", usado quando há necessidade de atualizar ou incluir produtos ou preços.</td>
-              </tr>
               <tr>
                 <td>policy</td>
                 <td>Definição da política de preços</td>
                 <td>Objeto (Politica)</td>
-                <td>"Opcional", usado quando há necessidade de atualizar ou incluir produtos ou preços.</td>
+                <td>"Opcional",  deve ser declarado quando há necessidade de atualizar ou incluir produtos ou preços.</td>
               </tr>
             </table>
              <br>
@@ -2195,7 +2189,7 @@ controlUnitQuantity</td>
                 <td>customerDocumentList</td>
                 <td>CNPJ do cliente do distribuidor</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
             </table>
             <br>
@@ -2261,7 +2255,7 @@ controlUnitQuantity</td>
                 <td>productPrice</td>
                 <td>Lista de tipos de preços do SKU</td>
                 <td>Objeto</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
             </table>
             <br>
@@ -2278,13 +2272,13 @@ controlUnitQuantity</td>
                 <td>priceTp</td>
                 <td>Tipos de preços de acordo com a tabela abaixo.</td>
                 <td>String(10)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>priceValue</td>
                 <td>Valor del preço</td>
                 <td>Number</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -2343,7 +2337,7 @@ controlUnitQuantity</td>
                 <td>success</td>
                 <td>Indica se a solicitude foi executada com sucesso</td>
                 <td>Boolean</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 
                 <tr>
@@ -2488,13 +2482,14 @@ controlUnitQuantity</td>
                 <td>customer</td>
                 <td>Cliente que foi criado</td>
                 <td>Customer</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 </table>
 <br>
 <p><b>Objeto Customer</b></p>
 
-<table style="border: 1p%">
+ <table style="margin-right: 20px">
+
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -2505,19 +2500,19 @@ controlUnitQuantity</td>
                 <td>documentNr</td>
                 <td>CNPJ do cliente</td>
                 <td>String (15)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>name</td>
                 <td>Razão Social do cliente</td>
                 <td>String (100)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>email</td>
                 <td>Email</td>
                 <td>String (255)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                  <tr>
                 <td>stateSubscription</td>
@@ -2564,19 +2559,19 @@ controlUnitQuantity</td>
                 <td>recipientNm</td>
                 <td>Nome do destinatário</td>
                 <td>String (100)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                  <tr>
                 <td>address</td>
                 <td>Logradouro</td>
                 <td>String (100)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                   <tr>
                 <td>addressNr</td>
                 <td>Número</td>
                 <td>String (10)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>additionalInfo</td>
@@ -2588,25 +2583,25 @@ controlUnitQuantity</td>
                 <td>quarter</td>
                 <td>Bairro</td>
                 <td>String (80)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>city</td>
                 <td>Cidade</td>
                 <td>String (60)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>state</td>
                 <td>UF do Estado</td>
                 <td>String (2)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>postalCd</td>
                 <td>CEP</td>
                 <td>String (8)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -2625,19 +2620,19 @@ controlUnitQuantity</td>
                 <td>Tipo do telefone: 1 – Comercial
 2 – Celular</td>
                 <td>int</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>areaCd</td>
                 <td>Código de área (DDD)</td>
                 <td>String (4)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>phoneNr</td>
                 <td>Número do telefone</td>
                 <td>long</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 
 
@@ -2660,7 +2655,7 @@ controlUnitQuantity</td>
                   <li style="font-size:  90%"><b style="background-color: white">APV</b>: Aprovado, esse retorno só deve ser realizado em caso de atualização cadastral, para manter o mesmo status de aprovado, caso o mesmo tenha sido aprovado anteriormente </li>
                   <li style="font-size:  90%"><b style="background-color: white">RPV</b>: reprovado, retornar esse status na mesma condição do contexto do aprovado. </li></td>
                 <td>String (3)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -2751,7 +2746,7 @@ controlUnitQuantity</td>
                 <td>customer</td>
                 <td>No escopo do Middleware (aprovação/bloqueio do cliente) é necessário enviar apenas o campo documentNr.</td>
                 <td>Customer</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 
 
@@ -2764,7 +2759,7 @@ controlUnitQuantity</td>
                   <li style="font-size:  90%"><b style="background-color: white">RPV</b>: Bloqueia o cliente para efetuar compras, com quaisquer modalidades de meios de pagamentos.</li>
                 </td>
                 <td>String (3)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -2783,7 +2778,7 @@ controlUnitQuantity</td>
                 <td>Status da atualização do cliente.
 Será enviado “OK” (sem aspas) quando o cliente for atualizado com sucesso.</td>
                 <td>String (3)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>  
 
@@ -2869,7 +2864,7 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
                 <td>coupons</td>
                 <td>Lista de atualizações de limite de crédito</td>
                 <td>List<'Coupon></td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
              <br>
@@ -2887,20 +2882,20 @@ soapenv:Envelope xmlns:cou="http://www.accurate.com/acec/coupon" xmlns:soapenv="
                 <td>customerDocumentNr</td>
                 <td>CNPJ do cliente</td>
                 <td>String (15)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>value</td>
                 <td>Valor disponível para o limite de crédito</td>
                 <td>Decimal (15.2) Valores com separados com ponto e não virgula</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>origin</td>
                 <td>Valor disponível para o limite de crédito</td>
                 <td>Este campo identifica para onde o distribuidor está passando o crédito do cliente. Caso Selecione IFC o campo value é desconsiderado, caso mande SELLER, o funcionamento se mantém como é hoje em dia.
 Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
               <br>
@@ -2918,7 +2913,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>Success</td>
                 <td>String(4000)</td>
                 <td>Contém uma mensagem indicando se o preço foi recebido com sucesso ou se houve um erro.</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -2981,7 +2976,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>order</td>
                 <td>Pedido</td>
                 <td>Order (lista que armazenara toda requisição)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
            </table>
@@ -2997,27 +2992,27 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>orderId</td>
                 <td>Identificador do pedido</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
               <tr>
                 <td>totalAmount</td>
                 <td>Valor total do pedido</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
                 
               </tr> 
               <tr>
                 <td>totalDiscountAmount</td>
                 <td>Valor total de descontos no pedido</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>purchaseDate</td>
                 <td>Data e hora do pedido</td>
                 <td>Date/Time</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>sessionCreationDate</td>
@@ -3041,7 +3036,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>saleChannel</td>
                 <td>Canal de venda da plataforma</td>
                 <td>String (6)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>purchaseOrder</td>
@@ -3059,25 +3054,25 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>deliveries</td>
                 <td>Lista de entregas</td>
                 <td>List <'Delivery'></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>customer</td>
                 <td>Cliente (lista de dados)</td>
                 <td>List <'customer'></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>billingAddress</td>
                 <td>Endereço de cobrança</td>
                 <td>List <'address'></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>paymentList</td>
                 <td>Lista de pagamentos</td>
                 <td>List <'payment'></td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>freightChargedAmount</td>
@@ -3095,7 +3090,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>countDistinctSku</td>
                 <td>Contagem distinta dos SKUs do pedido</td>
                 <td>int</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
             </table>
             <br>  
@@ -3111,14 +3106,14 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>orderId</td>
                 <td>Identificador do pedido</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                 <tr>
                 <td>deliveryId</td>
                 <td>Identificador da entrega</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                 </tr> 
@@ -3126,20 +3121,20 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>totalAmount</td>
                 <td>Valor total da entrega</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                 <tr>
                   <td>totalDiscountAmount</td>
                   <td>Valor de descontos na entrega</td>
                   <td>Decimal (15,2)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
                 <tr>
                   <td>orderLineList</td>
                   <td>Lista de itens da entrega</td>
                   <td>List<'OrderLine'></td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
                 <tr>
                   <td>freightAmount</td>
@@ -3151,7 +3146,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                   <td>deliveryAddress</td>
                   <td>Endereço da entrega</td>
                   <td>Address</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
         </table>
         <br>  
@@ -3167,7 +3162,7 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                 <td>sku</td>
                 <td>Identificador do SKU</td>
                 <td>String (30)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr> 
                 <tr>
@@ -3176,46 +3171,46 @@ Caso a tag não seja enviada, mantém-se o que está cadastrado. </td>
                   NOR = Normal (cobrado)<br>
                   FFR = Bonificado (esses itens devem ser faturados com valor zero na NFS)</td>
                 <td>String (3)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
 
               </tr>
               <tr>
                 <td>quantity</td>
                 <td>Quantidade</td>
                 <td>int</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>catalogListPrice</td>
                 <td>Preço de listagem base no catálogo do último preço DFL para o produto. Não levando em consideração por qual distribuidor foi enviado.</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
                 <tr>
                 <td>listPrice</td>
                 <td>Preço de listagem do SKU na sacola.
 Esse preço pode levar em consideração as taxas de forma de pagamento.</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>   
               <tr>
                 <td>salePrice</td>
                 <td>Preço da venda.
 Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o SKU é uma bonificação esse preço é R$ 0,00.</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>unconditionalDiscountAmount</td>
                 <td>Descontos incondicionais</td>
                 <td>Decimal (15,2) </td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>roundingDiscountAmount</td>
                 <td>Valor total dos arredondamentos de descontos aplicados à linha</td>
                 <td>Decimal (15,2) </td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>promotionList</td>
@@ -3233,7 +3228,7 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>kitSkuId</td>
                 <td>Identificador do KIT</td>
                 <td>String (30)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>kitSkuName</td>
@@ -3257,7 +3252,7 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>skuName</td>
                 <td>Nome do SKU</td>
                 <td>String (255)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
             </table>
             <br>  
@@ -3273,13 +3268,13 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>promotionId</td>
                 <td>Identificador da promoção</td>
                 <td>String (255)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>promotionName</td>
                 <td>Nome da promoção</td>
                 <td>String (255)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>promotionStartDate</td>
@@ -3309,13 +3304,13 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>type</td>
                 <td>Tipo da promoção. Ex: Frete, Subtotal, Produto,...</td>
                 <td>String (255)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>amount</td>
                 <td>Valor do desconto concedido por está promoção para cada unidade da linha</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>roundingAmount</td>
@@ -3413,19 +3408,19 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>recipientNm</td>
                 <td>Nome do destinatário</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>address</td>
                 <td>Logradouro</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>addressNr</td>
                 <td>Número</td>
                 <td>String (10)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>additionalInfo</td>
@@ -3437,19 +3432,19 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>quarter</td>
                 <td>Bairro</td>
                 <td>String (80)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>city</td>
                 <td>Cidade</td>
                 <td>String (60)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>state</td>
                 <td>Estado</td>
                 <td>String (2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>countryId</td>
@@ -3461,7 +3456,7 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>postalCd</td>
                 <td>CEP</td>
                 <td>String (8)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>postalCdIntl</td>
@@ -3507,25 +3502,25 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <td>customerId</td>
                 <td>Identificador do cliente</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>documentNumber</td>
                 <td>CNPJ do cliente</td>
                 <td>String (15)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>name</td>
                 <td>Razão Social do cliente</td>
                 <td>String (100)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>email</td>
                 <td>Email</td>
                 <td>String (255)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>phoneMobile</td>
@@ -3571,7 +3566,7 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
             <li><b>creditCardPayment:</b> contém informações específicas de pagamento com cartão de crédito, como: quantidade de parcelas.<b>abstractPayment:</b> contém informações genéricas do pagamento, como: tipo do pagamento e valor.</li>
              <br>  
             <p><b>Objeto abstractPayment</b></p>
-             <table style="border: 1p%">
+             <table style="margin-right: 20px">
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -3590,13 +3585,13 @@ Esse é o preço que o SKU foi, de fato, vendido, incluindo promoções.Quando o
                 <li>PIX: DISPONÍVEL PARA ALGUMAS LOJAS. CONSULTAR A DISPONIBILIDADE JUNTO A INFRACOMMERCE.</li>
                 </td>
                 <td>String (4000)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>value</td>
                 <td>Valor pago através desse meio de pagamento</td>
                 <td>Decimal (15,2)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr>
               <tr>
                 <td>billType</td>
@@ -3621,19 +3616,19 @@ Caso o tipo de pagamento não seja boleto faturado, o campo irá vazio.</td>
                   <li>CREDIT_CARD: Cartão de crédito</li>
                 </td>
                 <td>String (4000)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>value</td>
                 <td>Valor pago através desse meio de pagamento</td>
                 <td>String (4000)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>numberOfInstallments</td>
                 <td>Quantidade de parcelas</td>
                 <td>int</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
             </table>
 
@@ -3652,14 +3647,14 @@ Caso o tipo de pagamento não seja boleto faturado, o campo irá vazio.</td>
 Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O status OK também deve ser retornado quando reenviamos um pedido em caso de solicitação do seller
                 </td>
                 <td>String (4000)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
               <tr>
                 <td>message</td>
                 <td>Mensagem indicando se o pedido foi recebido com sucesso ou se houve um erro. Caso seja uma mensagem indicando o erro deve-se colocar o máximo possível de informação para ajudar a identificar o problema. Como padrão esperamos. "Pedido integrado com sucesso" para o primeiro envio e , "Pedido ja existe no ERP caso o mesmo pedido seja reenviado pela plataforma."
                 </td>
                 <td>String (4000)</td>
-                <td>Obrigatório</td>
+                <td><b>Obrigatório</b></td>
               </tr> 
             </table>
              <br>  
@@ -5043,7 +5038,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>orderId</td>
                 <td>Identificador do pedido</td>
                 <td>String(15)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 
 
@@ -5051,7 +5046,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>amount</td>
                 <td>Valor total do pedido</td>
                 <td>Decimal</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                  <tr>
                 <td>status</td>
@@ -5061,7 +5056,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
                 </td>
                 <td>String(3)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
             </table>
 
@@ -5080,7 +5075,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>success</td>
                 <td>boolean</td>
                 <td>Enviar true quando a aprovação/reprovação de pagamento tiver sido recebida com sucesso. O valor false será entendido como erro e a aprovação/reprovação de pagamento será enviada novamente.</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 </table>
 
@@ -5336,7 +5331,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 
             <br>
               <br>
-              <h3 style="color: red">Exemplo de retorno que deve ser retornado para requisições de tracking</h3>
+              <h3 style="color: red">Exemplo de resposta que deve ser retornado para as requisições de trackings</h3>
               
               <textarea rows="17" cols="80" style="align-self: ">
  <?xml version = '1.0' encoding = 'UTF-8'?>
@@ -5461,7 +5456,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>trackingList</td>
                 <td>Lista do objeto Tracking</td>
                 <td>List<'Tracking></td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
 </table>
 
@@ -5479,38 +5474,38 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>orderId</td>
                 <td>Identificador do pedido</td>
                 <td>String (20)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
               </tr> 
                 <tr>
                 <td>controlPointId</td>
                 <td>Identificador do ponto de controle (Verificar na tabela Tipos de Tracking) </td>
                 <td>String (5)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>controlPointNm</td>
                 <td>Descrição do ponto de controle </td>
                 <td>String (100)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                <tr>
                 <td>occurrenceDt</td>
                 <td>Data da ocorrência do evento </td>
                 <td>Date</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>invoiceUrl</td>
                 <td>URL de acesso a nota fiscal eletrônica </td>
                 <td>String (2500)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                 <tr>
                 <td>invoiceInfo</td>
                 <td>Informações adicionais sobre nota fiscal  </td>
                 <td>InvoiceInfo</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
               </tr>
                  <tr>
                 <td>skuDeliveryTrackingList</td>
@@ -5571,7 +5566,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 <br>
 <p><b>Objeto SkuDeliveryTrackingList</b></p>
 
-<table style="border: 1p%">
+ <table style="margin-right: 20px">
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -5589,7 +5584,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 <br>
 <p><b>Objeto SkuDeliveryTracking</b></p>
 
-<table style="border: 1p%">
+ <table style="margin-right: 20px">
               <tr>
                 <th width="25%">Campo</th>
                 <th width="25%">Descrição</th>
@@ -5600,7 +5595,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>skuId</td>
                 <td>EAN do SKU</td>
                 <td>String (30)</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
                    <tr>
                 <td>unitPrice</td>
@@ -5612,7 +5607,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>preparedQt</td>
                 <td>Quantidade faturada</td>
                 <td>int</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
                      <tr>
                 <td>kitSkuId</td>
@@ -5637,7 +5632,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <td>success</td>
                 <td>Determina se a captura ocorreu com sucesso.</td>
                 <td>Boolean</td>
-                  <td>Obrigatório</td>
+                  <td><b>Obrigatório</b></td>
                 </tr>
 </table>  
 
@@ -5667,7 +5662,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
     <!--footer-->
     <footer id="footer">
       <div class="container">
-        <small style="font-size: 60%">A solution developed by Rollout IFC 2022</small>
+        <small style="font-color: red">A solution developed by Rollout IFC 2022</small>
          <img src="img/unnamed.gif" width="1.6%" align="left" border="1px">
       </div>
     </footer>

@@ -123,6 +123,35 @@ margin-right: 1.5rem;
     background: #F1B41B;
 }
 
+.div2:hover{
+transition: 0.5s;
+color: #231933;
+padding: 8px;
+border-left: 0px solid #B34965;
+
+
+}
+.div3:hover{
+transition: 0.5s;
+color: #231933;
+padding: 8px;
+
+border-left: 0px solid #B34965;
+
+
+}
+
+}
+.li:hover{
+transition: 0.5s;
+color: #231933;
+padding: 8px;
+
+border-left: 0px solid #B34965;
+
+
+}
+
 .sidebar {
  display: inline;
  width: 40%;
@@ -234,6 +263,7 @@ textarea {
 
         <section>
           <div class="imagemifc">
+          
           <h2>Material Complementar (IFC)</h2>
           </div>
           <p>
@@ -256,6 +286,7 @@ textarea {
             <p>A seguir tem por objetivo descrever todos os Web Services expostos pelo Middleware na plataforma Infrashop e os Web Services que devem ser expostos pelo Distribuidor para que seja possível realizar a integração do Distribuidor com o e-commerce.</p>
             <p>De forma geral, a integração consiste em trocas de informações/dados entre a plataforma e sellers e vice e versa. Segue abaixo os fluxos de integrações:</p>
             <br>
+             
             <h3>Web services que devem ser disponibilizados pelo distribuidor:</h3>
             <br>
             <p><b>Cliente</b> (Protocolo Soap) - Do lado distribuidor, será necessário disponibilizar um endpoint de cliente para que a plataforma envie cadastros de clientes e atualizações, em nosso material de apoio é disponibilizado os arquivos WSDL e XSD’s para que sejam importados em um servidor IIS, por exemplo, para torná-lo público. </p>
@@ -264,11 +295,15 @@ textarea {
               <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX, Boleto a Vista), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.</p>
                 <br>
                 <br>
+
+ <div class="div2">
+
                 <h4>Pré-requisitos dos endpoints acima:</h4>
 
                 <li> Devem estar protegidos por criptografia Basica (Basic64).</li>
                 <li> Devem ser expostos em protocolo HTTPS com um certificado válido (Recomendamos Modelo Wildcard, por atender subdomínios, e uma vez que, o distribuidor irá trabalhar com nos ambientes de homologação e produção. não é aceito certificado auto assinado como A1 e A3). </li>
                 <li> O certificado deverá ser compatível com protocolo de segurança TLS 1.2 ou superior. </li>
+      </div>
                 <br>
                 <p><b>Observação:</b> Somente após a disponibilização dos web services de cliente, pedido e pagamento, atendendo aos requisitos acima, serão disponibilizados os acessos aos web services da Infracommerce. Lembrando que o retorno das respostas deve estar de acordo com os retornos requerido no manual de integração, conforme os exemplos de retornos.</p>
                 <br>
@@ -280,26 +315,33 @@ textarea {
                 <li>Limite de crédito (SOAP) – Disponibilizar limite de crédito para os clientes desejados, lembrando que para validar essa funcionalidade, o cliente precisa constar com status aprovado.</li>
                 <li>Tracking (SOAP) – enviar as trackings de pedidos, sendo elas, separação, nota fiscal, faturamento concluído, entrega em andamento, entrega concluída, Cancelamento, Analise de credito aprovada e reprovada. </li>
                 <br>
+                  <div class="div2">
                 <h4>Ambiente:</h4>
                 <p>E Vale ressaltar, que o processo de implantação terá início no ambiente de homologação da plataforma e deverá seguir a mesma premissa do lado do seller a fim de evitar qualquer risco, e apenas após a conclusão de todas as etapas de implantação, o distribuidor será migrado para o ambiente de produção tendo em vista a execução do plano de testes dado como finalizado.</p>
+                </div>
                 <br>
                 <h4>Protocolo:</h4>
                 <p>Os webs services utilizam o protocolo SOAP para comunicação e apenas a integração de Política de preços segue o padrão REST, esses, serão utilizados possibilitar a integração do caminho plataforma > distribuidor e vice versa.</p>
                 <br>
+                  <div class="div3">
                 <h4>Limite de requisições:</h4>
                 <p>Ao fazer uma requisição para o Middleware, independente do serviço (estoque, preço, política de preço, tracking, limite de crédito ou aprovação de clientes), o distribuidor deve limitar a lista de objetos em no máximo 50. Exemplo: o Seller precisa enviar preço para 200 produtos, neste caso, deverá dividir os envios em 4 requisições contendo 50 produtos.</p>
                 <p>Para preços: Caso o distribuidor tenha tido alteração de estoque em 30 SKUs, deve-se enviar apenas uma requisição com os 30 SKUs ou Caso o distribuidor tenha tido alteração de estoque em 130 SKUs, deve-se enviar uma requisição contendo 50 SKUs. Após o retorno dessa primeira requisição deve-se enviar mais uma requisição contendo 50 SKUs e, após o retorno da segunda requisição, deve-se enviar mais uma requisição com os 30 últimos SKUs</p>
+                </div>
                 <br>
 
+                
                 <h3>Pré - requisitos de Hardware e rede</h3>
+
                 <br>
+                <div class="div3">
                 <li>Conexão estável de internet para não haver falha nas integrações.</li>
                 <li>Endpoints estáveis e sem alterações de URL ou senha (deve ser fixo e não dinâmico).</li>
                 <li>ERP apto para emitir notas fiscais nos ambientes de homologação e produção e gerenciar o cancelamento das notas durante os testes de homologação.</li>
                 <li>Não utilizar recursos ou programas que possam comprometer o processamento das integrações ou disputar recursos de hardware ou rede.</li>
                 <br>
                 <p><b>Observação:</b> Toda alteração feita no ambiente do distribuidor como: Endpoint, credenciais, alteração no certificado digital, deverá comunicar com pelo menos duas semanas de antecedência, para que possamos prevenir futuros impactos na plataforma de integração.</p>
-
+    </div>
                 <br>
                 <br>
                 <h3>Recomendações</h3>
@@ -309,6 +351,7 @@ textarea {
                 <li>Espaço em disco: Minimo de 60GB disponível</li>
                 <li>Conectividade: Internet estavel, IP fixo para os web services</li>
                 <li>Banco de dados ou APIS: Gerenciamento do ERP utilizado.</li>
+
                 <div class="div1"></div>
 
             
@@ -341,10 +384,11 @@ textarea {
              <p>O distribuidor deve ser capaz de desabilitar a trava, caso a tenha, de envio de estoque via integração apenas quando o SKU respeitar a regra de possuir estoque mínimo suficiente para a venda de pelo menos 3 dias (D-3) de venda.</p>
              <br>
              <h3>Apoio para o desenvolvimento</h3>
-
+              
             <li>O Web Service responsável pela integração de estoque é o<b>StockServices.</b></li>
             <li>A operação responsável pela integração de estoque é a<b>setStock.</b></li>
             <li>Esse WebService fica hospedado no Middleware, portanto, deve ser chamada pelo Distribuidor. O material da apoio para construção dos WSDL e XSD estão presentes no item 11 do manual.</li>
+           
             <b></b>
             <h4 align="center"> Requisição com um produto</h4>
             <br>

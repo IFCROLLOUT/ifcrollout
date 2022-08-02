@@ -98,11 +98,13 @@ td:first-child + td + td {  width: 120px }
 
 #footer {
     margin-bottom: 2rem;
+     border-radius:  0.6rem  0.6rem 0 0;
 }  
 
 #footer .container {
     position: relative;
     display: block;
+    border-radius:  0rem  0rem  0.6rem 0.6rem;
 
     margin-left: 1.5rem;
 margin-right: 1.5rem;
@@ -182,7 +184,7 @@ list-style: none;
 left: 0;
 color: #231933;
 padding: 8px;
-
+ font-weight: bold;
 z-index: 1;
 height: 100%;
 widht:100%;
@@ -388,7 +390,7 @@ textarea {
             <li>O Web Service responsável pela integração de estoque é o<b>StockServices.</b></li>
             <li>A operação responsável pela integração de estoque é a<b>setStock.</b></li>
             <li>Esse WebService fica hospedado no Middleware, portanto, deve ser chamada pelo Distribuidor. O material da apoio para construção dos WSDL e XSD estão presentes no item 11 do manual.</li>
-           
+
             <b></b>
             <h4 align="center"> Requisição com um produto</h4>
             <br>

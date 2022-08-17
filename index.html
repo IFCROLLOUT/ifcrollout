@@ -328,7 +328,9 @@ textarea {
                 <br>
                   <div class="div3">
                 <h4>Limite de requisições:</h4>
-                <p>Ao fazer uma requisição para o Middleware, independente do serviço (estoque, preço, política de preço, tracking, limite de crédito ou aprovação de clientes), o distribuidor deve limitar a lista de objetos em no máximo 100. Exemplo: o Seller precisa enviar preço para 200 produtos, neste caso, deverá dividir os envios em 2 requisições contendo 100 produtos.</p>        
+                <p>Ao fazer uma requisição para o Middleware, independente do serviço (estoque, preço, política de preço, tracking, limite de crédito ou aprovação de clientes), o distribuidor deve limitar a lista de objetos em no máximo 100 objetos. Exemplo: o Seller precisa enviar preço para 200 produtos, neste caso, deverá dividir os envios em 2 requisições contendo 100 produtos.
+                <p>Para preços por exemplo, não incluir mais de 100 produtos ou exceder acima de 100 clientes na mesma requisição, e assim por diante para as outras integrações</p>
+                </p>        
                 </div>
                 <br>
 

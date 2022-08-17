@@ -164,9 +164,10 @@ border-left: 0px solid #B34965;
 
 li {
   margin-right: 22px;
-  font-size:90%;
+  font-size:95%;
   padding-right: 10px;
   font-size: 60%;
+
 }
 
 sumary:before{
@@ -294,7 +295,7 @@ textarea {
             <p><b>Cliente</b> (Protocolo Soap) - Do lado distribuidor, será necessário disponibilizar um endpoint de cliente para que a plataforma envie cadastros de clientes e atualizações, em nosso material de apoio é disponibilizado os arquivos WSDL e XSD’s para que sejam importados em um servidor IIS, por exemplo, para torná-lo público. </p>
             <p><b>Pedido</b> (Protocolo Soap) Seguindo o mesmo conceito de cliente, porém para receber pedidos da plataforma.</p>
               
-              <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX, Boleto a Vista), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.</p>
+              <p><b>Pagamento</b> (Protocolo Soap) Para receber as confirmações de pagamentos dos pedidos, cujo meio de pagamento é gerenciado pela infracommerce (Boleto antecipado, PIX e Cartão de crédito), notificamos esses pagamentos com status tanto de aprovação, quanto reprovação.</p>
                 <br>
                 <br>
 
@@ -327,8 +328,7 @@ textarea {
                 <br>
                   <div class="div3">
                 <h4>Limite de requisições:</h4>
-                <p>Ao fazer uma requisição para o Middleware, independente do serviço (estoque, preço, política de preço, tracking, limite de crédito ou aprovação de clientes), o distribuidor deve limitar a lista de objetos em no máximo 50. Exemplo: o Seller precisa enviar preço para 200 produtos, neste caso, deverá dividir os envios em 4 requisições contendo 50 produtos.</p>
-                <p>Para preços: Caso o distribuidor tenha tido alteração de estoque em 30 SKUs, deve-se enviar apenas uma requisição com os 30 SKUs ou Caso o distribuidor tenha tido alteração de estoque em 130 SKUs, deve-se enviar uma requisição contendo 50 SKUs. Após o retorno dessa primeira requisição deve-se enviar mais uma requisição contendo 50 SKUs e, após o retorno da segunda requisição, deve-se enviar mais uma requisição com os 30 últimos SKUs</p>
+                <p>Ao fazer uma requisição para o Middleware, independente do serviço (estoque, preço, política de preço, tracking, limite de crédito ou aprovação de clientes), o distribuidor deve limitar a lista de objetos em no máximo 100. Exemplo: o Seller precisa enviar preço para 200 produtos, neste caso, deverá dividir os envios em 2 requisições contendo 100 produtos.</p>        
                 </div>
                 <br>
 
@@ -366,8 +366,30 @@ textarea {
           <details><!--01 - Reunião de Kickoff-->
             <summary>02 - Integração de estoque</summary>
             <br>
-            <p>No modelo abaixo segue exemplo de envio de estoque contendo duas formas, uma requisição única para um produto e também uma requisição contendo mais de um produto. As integrações de estoque são realizadas no protocolo Soap. As Urls e dados de autenticãções são disponibilizados pela Infracommerce ao Seller.</p>
+
+            <h3>Introdução</h3>
+            <br>
+            <p>O padrão utilizado na plataforma, segue o padrão EAN/SKU, sendo necessário que os produtos estejam cadastrados no ERP e também na plataforma.</p>
+         
+          <p><b>Exemplo de SKU unitário: 7891150058428 </b></p>
+
           <br>
+          <h4>Produtos no padrão caixa</h4>
+            <br>
+
+
+            <p>O Padrão de SKU de caixa, segue no modelo<b>EAN + C + Quantidade que será vendido na caixa</b>, sendo necessário que o distribuidor configure e cadastre os produtos em caixaria nesse padrão em seu ERP.</p>
+           
+           
+            <p>Exemplo do EAN 7891150058428 sendo vendido em uma caixa de 4 unidades, o cadastro em seu erp deve ser:<b>7891150058428C4</b>. </p>
+ <br>
+            <h4>Gerenciamento de estoque para produtos com caixa</h4>
+            <br>
+
+            <p>Se SKU1234 (exemplo fictício) tem 1000 unidades em estoque, mas é vendido em caixa com 4 unidades:</p>
+            <p>Enviar 250 como unidade de estoque, pois 1000/4=250. Se enviasse 1000, permitiríamos que o cliente compre até 1000 caixas de 4, totalizando 4000 unidades.</p>
+            <p><b>Atenção:</b> Este desenvolvimento só é necessário para distribuidores que enviam integrações de SKU’s de caixas que não são trabalhadas fisicamente pelo distribuidor</p>
+             <p>O distribuidor deve ser capaz de desabilitar a trava, caso a tenha, de envio de estoque via integração apenas quando o SKU respeitar a regra de possuir estoque mínimo suficiente para a venda de pelo menos 3 dias (D-3) de venda.</p>
             <h3>Regras</h3>
             
 
@@ -377,13 +399,7 @@ textarea {
             <li>Para distribuidores que trabalham com venda de caixas ou múltiplos, mas controlam seus estoques em sistemas internos e centro de distribuição por unidades, é necessário que os estoques sejam enviados para cada SKU respeitando a lógica de unidade ou caixa vendida no site. Ou seja, neste caso, o estoque deve ser calculado para a versão da caixa.</li>
 
             <br>
-            <h4>Exemplo aplicado para estoque em caixa:</h4>
-            <br>
-
-            <p>Se SKU1234 (exemplo fictício) tem 1000 unidades em estoque, mas é vendido em caixa com 4 unidades:</p>
-            <p>Se for vender SKU1234C4 precisa enviar 250 como quantidade para o SKU1234C4, pois 1000/4=250. Se enviasse 1000, permitiríamos que o cliente compre até 1000 caixas de 4, totalizando 4000 unidades.</p>
-            <p><b>Atenção:</b> Este desenvolvimento só é necessário para distribuidores que enviam integrações de SKU’s de caixas que não são trabalhadas fisicamente pelo distribuidor</p>
-             <p>O distribuidor deve ser capaz de desabilitar a trava, caso a tenha, de envio de estoque via integração apenas quando o SKU respeitar a regra de possuir estoque mínimo suficiente para a venda de pelo menos 3 dias (D-3) de venda.</p>
+            
              <br>
              <h3>Apoio para o desenvolvimento</h3>
               
@@ -394,6 +410,7 @@ textarea {
             <b></b>
             <h4 align="center"> Requisição com um produto</h4>
             <br>
+          
             <b></b>
              <textarea rows="20" cols="80">
               <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stoc="http://www.accurate.com/acec/StockServices" xmlns:stoc1="http://www.accurate.com/acec/Stock">
@@ -1956,7 +1973,8 @@ controlUnitQuantity</td>
     }
 </textarea>
 <br>
-    <p>Observação: O mesmo exemplo se aplicará para mover cliente(s) de uma politica cluster para politica padrão. A única alteração neste caso será alterar o ID da politica para DEFAULT incluindo os clientes que deseja mover.</p>
+    <p><b>Observação:</b> O mesmo modelo de requisição acima, servirá para<b>mover/alterar um cliente de uma politica para outra</b>, alterando apenas o ID da politica para qual deseja ingressa-los. Exemplo: Caso a requisição estivesse com ID default, os clientes seriam enviados novamente para ela.</p>
+    <p>Considerando o contexto apresentado, a forma de remover um cliente de uma politica de preços, é transferindo o mesmo para outra, tendo em vista que o cliente poderá apenas fazer parte de uma politica.</p>
     <br>
      <h4>Exemplo de requisição para atualizar preços ou incluir produto</h4>
 
@@ -2530,10 +2548,16 @@ controlUnitQuantity</td>
                </textarea>
                <br>
                <p>O retorno de Status PEN deverá ser retornado pelo distribuidor como resposta para todo novo cliente enviado via plataforma. Um cliente com esse Status, já está apto para efetuar pedidos com as modalidades de pagamentos gerenciadas pela Infracommerce.  </p>
+               <p><b>Ressalva:</b> Caso o limite de crédito for gerenciado por alguma fintech parteira do marketplace, e o cliente tiver crédito liberado, a plataforma também possibilitará a compra na modalidade boleto faturado mesmo com status pré aprovado.</p>
                <br>
                <p>Caso o cliente entre no site posteriormente para atualizar algum dado cadastral, como telefone, e-mail e etc, a informação enviada da plataforma para o distruibuidor será uma nova notificação de cadastro contendo toda a requisição. Neste caso, é sugerido que o seller retorne o status atual que o cliente se encontra. (PEN, APV ou RPV).</p>
                <br>
-               <p><b>Pontos de atenção:</b> Durante a implantação, será enviado para o distribuidor envios massivos de clientes, atendidos pelo seu range de CEP, por este motivo, é importante que toda estrutura do seller, de banco, infraestrutura, seja capaz de receber esses dados e integrá-los. Na etapa de homologação é possível antecipar essa carga, a fim de evitar quaisquer eventuais problemas na etapa de produção.</p>
+               <h3>Pontos de atenção:</h3>
+               <br>
+               <li> Durante a implantação, será enviado para o distribuidor envios massivos de clientes, atendidos pelo seu range de CEP, por este motivo, é importante que toda estrutura do seller, de banco, infraestrutura, seja capaz de receber esses dados e integrá-los. Na etapa de homologação é possível antecipar essa carga, a fim de evitar quaisquer eventuais problemas na etapa de produção.</li>
+               
+<li>Importante ressaltar que caso o seller não queira que as informações cadastrais enviadas via plataforma sejam atualizadas em sua base já existente, como telefone, endereço, etc é necessário que o distribuidor desenvolva uma condição para não atualizar os campos desejados.</li>
+<li><b>Motivo:</b> Antes da entrega do Seller em produção, a plataforma executará uma API responsável por enviar todos os clientes (CNPJ’s). Lembrando essa validação opcional não deve impedir as integrações de clientes, somente impedir que os campos na notificação de cadastro não atualizem informações indesejadas.</li>
                <br>
 
 
@@ -5204,7 +5228,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               <h3>Ciclo de trackings para pedidos boleto faturado</h3>
               <p>
                 <br>
-              <b>MAP- Opcional -</b>Analise de credito aprovada: Informará para plataforma que apesar do pedido ser efetuado com limite de crédito já efetuado em site, seguirá com o mesmo.
+              <b>MAP- Opcional -</b>Analise de credito aprovada: Informará para plataforma que apesar do pedido ser efetuado com limite de crédito já efetuado em site, seguirá com o mesmo. É uma tracking opcional e caso utizada, deve ser informada apenas para pedidos boleto faturado, caso o seller optar em não utilizar, poderá seguir com o fluxo do pedido de trackings. 
               <p><b>WMS - NFS - FAT - ETR - ENT:</b> Seguir com a mesma sequencia após o envio da MAP, exemplo ilustrativo:</p>
               <br>
               <img src="img/2.png" width="80%" align="center" border="1px">

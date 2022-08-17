@@ -5092,14 +5092,9 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </soapenv:Envelope>
 </textarea>
 <br>
-<br>
-  <h4 align="center">Informação dos objetos</h4>
 
-  <li><b>orderId: </b>Numero do pedido</li>
-  <li><b>amount: </b>Valor do pedido</li>
-  <li><b>status: </b> <b>AP</b> indica que foi pago.<b>RP</b> indica que o pedido não foi pago (para esses casos o pedido nao segue o fluxo de vida)</li>
-<br>
 <h4 align="center">Exemplo de requisição de pagamento reprovado</h4>
+<br>
 <textarea rows="15" cols="82">
   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://www.accurate.com/acec/PaymentServices">
     <soapenv:Header/>
@@ -5112,10 +5107,11 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
     </soapenv:Body>
 </soapenv:Envelope>
 </textarea>  
-<br>
-<div class="div1"></div>
-              <p>
-                Quando um pagamento reprovado é enviado ao distribuidor, o mesmo não deverá seguir o fluxo de vida do mesmo, o ERP não deverá seguir com fluxo de trackings de continuidade do mesmo.</p>
+
+<div class="sidebar">
+
+                <p style="font-size: 100%">Quando um pagamento reprovado é enviado ao distribuidor, o mesmo não deverá seguir o fluxo de vida do mesmo, o ERP não deverá seguir com fluxo de trackings de continuidade do mesmo.</p>
+</div>  
 <br>
 <h4 align="center">Exemplo de retorno da requisição</h4>
 
@@ -5133,6 +5129,14 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
             
 
               <br>
+
+              <br>
+  <h4 align="center">Informação dos objetos</h4>
+
+  <li><b>orderId: </b>Numero do pedido</li>
+  <li><b>amount: </b>Valor do pedido</li>
+  <li><b>status: </b> <b>AP</b> indica que foi pago.<b>RP</b> indica que o pedido não foi pago (para esses casos o pedido nao segue o fluxo de vida)</li>
+<br>
 
 <p><b>Objeto confirmPaymentRequest</b></p>
 

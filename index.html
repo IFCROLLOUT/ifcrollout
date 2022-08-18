@@ -5218,7 +5218,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                  <p>Para pedidos cujo meio de pagamento é gerenciado pela infracommerce (Boleto à vista, cartão de crédito, PIX e Vale, o processo de trackings só deverá ser realizado, uma vez que o mesmo receber a confirmação de pagamento com status de pagamento aprovado. Uma vez que esse fluxo é realizado, o distribuidor deverá enviar o fluxo de trackings para continuidade do pedido:
               </p>
               <div class="div1"></div><br>
-              <h3>Tipos de trackings - para o fluxo de pedidos cujo pagamento é gerenciado pela infracommerce (Sequencia)</h3><br>
+              <h3>Tipos de trackings - ciclo de vida completo de trackings</h3><br>
               <p>
                <b>WMS - OPCIONAL</b>– Separação e embalagem. Esse status deverá ser enviado para plataforma uma vez que o pedido entrou nesse status (A integração de WMS é opcional).</p>
                <p><b>NFS - OBRIGATÓRIA</b> – Nota fiscal emitida: Nessa tracking devem ser informados todos os SKUS que foram farados, bem como outras informações que mostraremos no exemplo de requisição. Trata-se de uma tracking<b>obrigatória</b> para os pedidos que seguirão o fluxo de vida.
@@ -5236,26 +5236,17 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                <img src="img/ciclo_tracking.png" width="90%" height="90%" align="center" style="margin-right: 50px;">
               <div class="div1"></div>
               <br>
-              <h3>Ciclo de trackings para pedidos boleto faturado</h3>
-              <p>
-                <br>
-              <b>MAP- Opcional -</b>Analise de credito aprovada: Informará para plataforma que apesar do pedido ser efetuado com limite de crédito já efetuado em site, seguirá com o mesmo. É uma tracking opcional e caso utizada, deve ser informada apenas para pedidos boleto faturado, caso o seller optar em não utilizar, poderá seguir com o fluxo do pedido de trackings. 
-              <p><b>WMS - NFS - FAT - ETR - ENT:</b> Seguir com a mesma sequencia após o envio da MAP, exemplo ilustrativo:</p>
-              <br>
-              <img src="img/2.png" width="80%" align="center" border="1px">
-              </p>
+             
               <div class="div1"></div>
-               <h3>Cancelar boleto faturado</h3>
+               <h3>Cancelar pedidos</h3>
+             
               <p>
-               <b>MNA- Opcional -</b>Analise de credito reprovada:
-              </p>
-              <p>
-               <b>CAN- Obrigatória -</b>Cancelamento do pedido:
+               <b>CAN- Obrigatória -</b>Cancelamento do pedido: deverá ser utilizada em casos de cancelamento.
               </p>
               <br>
               <b style="text-align: center;">Exemplo ilustrativo:</b>
               <br>
-              <img src="img/3.png" width="80%" align="center" border="1px">
+              <img src="img/img4.png" width="80%" align="center" border="1px">
               <div class="div1"></div>
               <h4>Faturamento para pedidos que existem itens bonificados</h4>
               <p>
@@ -5279,28 +5270,9 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 Segue alguns exemplos de requisições para apoiar no desenvolvimento:
               </h3>
               <br>
-              <br>
-              <b style="text-align: center; color: #FF4500">Requisição MAP - Análise do limite de crédito aprovada. - APENAS PARA PEDIDOS DE BOLETO FATURADO.(Opcional):</b><br>
-                        <textarea rows="17" cols="80" style="align-self: ">
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
-   <soapenv:Body>
-      <trac:captureTrackingRequest>
-         <trac1:trackingList>
-            <trac1:tracking>
-               <trac1:orderId>1826201</trac1:orderId>
-               <trac1:controlPointId>MAP</trac1:controlPointId>
-               <trac1:controlPointNm>Análise do limite de crédito aprovada.</trac1:controlPointNm>
-               <trac1:occurrenceDt>2022-04-25T15:18:21.058-03:00</trac1:occurrenceDt>
-            </trac1:tracking>
-         </trac1:trackingList>
-      </trac:captureTrackingRequest>
-   </soapenv:Body>
-</soapenv:Envelope>         
-              </textarea>
-              <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MAP informando para plataforma que a analise de crédito para plataforma foi aprovada, para o pedido 1826201. Essa tracking é opcional e caso utilizada, deve ser aplicada apenas para pedidos com a forma de pagameneto boleto faturado.</b>  
-            </div>
-            <br>
+            
+              
+          
               <b style="text-align: center;">Requisição WMS - Separação e embalagem - (Opcional)</b><br>
               
                 <textarea rows="17" cols="80" style="align-self: ">
@@ -5466,26 +5438,8 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
               
               <h3>Cancelar pedidos</h3>
               <br>
-              <b style="text-align: center; color: #FF4500">Requisição MNA - Análise do limite de crédito reprovado - APENAS PARA PEDIDOS DE BOLETO FATURADO.(Opcional):</b><br>
-                        <textarea rows="17" cols="80" style="align-self: ">
- <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trac="http://www.accurate.com/acec/TrackingServices" xmlns:trac1="http://www.accurate.com/acec/Tracking" xmlns:inv="http://www.accurate.com/acec/InvoiceInfo">
-   <soapenv:Body>
-      <trac:captureTrackingRequest>
-         <trac1:trackingList>
-            <trac1:tracking>
-               <trac1:orderId>52388314</trac1:orderId>
-               <trac1:controlPointId>MNA</trac1:controlPointId>
-               <trac1:controlPointNm>Análise do limite de crédito reprovada.</trac1:controlPointNm>
-               <trac1:occurrenceDt>2022-04-26T10:18:21.058-03:00</trac1:occurrenceDt>
-            </trac1:tracking>
-         </trac1:trackingList>
-      </trac:captureTrackingRequest>
-   </soapenv:Body>
-</soapenv:Envelope>           
-              </textarea>
-              <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking MNA informando para plataforma que a analise de crédito para plataforma foi reprovada, para o pedido 52388314. Porém para efetivar de fato o cancelamento, deverá ser enviado pelo distribuidor, a tracking de cancelamento na sequencia, conforme o proximo exemplo. Importante ressaltar que essa tracking é opcional e exclusiva para pedidos realizados com a forma de pagamento em boleto faturado, não deve ser utilizada para pedidos com as demais formas de pagamentos.</b>  
-            </div>
+              
+            
                    <br>
               <b style="text-align: center; ">Requisição CAN - CANCELAMENTO - obrigatório para cancelar pedidos:</b><br>
                         <textarea rows="17" cols="80" style="align-self: ">
@@ -5505,7 +5459,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
 </soapenv:Envelope>   
               </textarea>
               <div class="sidebar">
-                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking CAN informando para plataforma que o pedido 52388314 foi cancelado. Essa mesma estrutura de trackig de cancelamento e utilizada para os demais tipos de pedidos. A unica diferença é que para boleto faturado o seller pode enviar o MNA a nivel de relatório. O Cancelamento é obrigatório para todos os tipos de pedidos que deverão ser cancelados. </b> 
+                <b style="vertical-align: right">No exemplo de requisição, é enviado a tracking CAN informando para plataforma que o pedido 52388314 foi cancelado. Essa mesma estrutura de trackig de cancelamento e utilizada para os demais tipos de pedidos. </b> 
             </div>
 
                 <div class="div1"></div>

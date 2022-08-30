@@ -5751,7 +5751,7 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
     document.querySelectorAll('summary').forEach(summary=> {
       summary.setAttribute('id', summary.innerText)
       summary.parentElement.addEventListener('click', () => {
-        let newurl = window.location.protocol + '//' + window.location.host + '/index.html#' + summary.innerText
+        let newurl = window.location.protocol + '//' + window.location.host + '/ifcrollout/index.html#' + summary.innerText
         if (history.pushState) {
           window.history.pushState({ path: newurl }, 'title',newurl)
         } else {

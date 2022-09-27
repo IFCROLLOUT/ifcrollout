@@ -215,6 +215,18 @@ details {
 
 }
 
+.devTotal {
+  margin: 0 !important;
+}
+
+.imgDevTotal {
+  width: 60%;
+}
+
+.containerDevTotal {
+  text-align: center;
+}
+
 
 /*==== display ====*/
 
@@ -5263,8 +5275,14 @@ Enviar o texto “OK” sem aspas quando estiver tudo ok com a integração. O s
                 <p>Envio de chave na nota fiscal, o campo invoiceEletronicKey, representa o número da chave da nota fiscal que precisa ser enviado. Para cada nota fiscal é emitido uma única chave.</p>
                 <p>A Tracking de FAT notifica a finalização do faturamento e os trackings de NF’s, devem, portanto, ser enviados antes da tracking de FAT. Não é obrigatório o número da chave. Caso aconteça o envio, é permitido que seja enviado somente uma chave entre todas notas emitidas.</p>
                 <p>A tracking de FAT indica que não será emitida mais nenhuma nota fiscal para o pedido. Portanto, as trackings de NFS enviados após uma tracking de FAT não serão contabilizados para os valores das apurações mensais de investimento, podendo causar divergências nos repasses.</p>
-
               </p>
+
+              <h3>Cancelamento por devolução total</h3>
+              <p>Pedidos que foram faturados, mas não foram entregues ou que o cliente devolveu no ato da entrega, devem receber o envio da tracking de CAN, <strong class="devTotal">mesmo que tenha sido faturado anteriormente.</strong> (independente do tempo que foi faturado).</p>
+              <div class="containerDevTotal">
+                <img class="imgDevTotal" src="img/devolucao_total.png">
+              </div>
+
               <div class="div1"></div>
               <h3>
                 Segue alguns exemplos de requisições para apoiar no desenvolvimento:
